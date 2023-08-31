@@ -9,18 +9,32 @@ import Foundation
 
 enum WebService{
     
-        
-    private static func completeUrl(path: LocalEnvironment.Endpoint) -> URLRequest? {
-        guard let url = URL(string: "\(LocalEnvironment.Endpoint.baseUrl.rawValue)\(path.rawValue)") else{return nil}
+    enum NetworkError{
+        case badRequest
+        case notFound
+        case unauthorized
+        case internalServerError
+    }
+    
+    enum Result {
+        case success(Data)
+        case failure(NetworkError, Data?)
+    }
+    
+    private static func completeUrl(path: LocalEnvironment) -> URLRequest? {
+        guard let url = URL(string: "\(LocalEnvironment.baseUrl.rawValue)\(path.rawValue)") else{return nil}
         
                 return URLRequest(url: url)
     }
     
-    static func postUser(request: SignUpRequest){
+    private static func call<T: Encodable>(path: LocalEnvironment,
+                                           body: T,
+                                           completion: @escaping (Result)-> Void){
         
-        guard let jsonData = try? JSONEncoder().encode(request) else { return }
+        guard var urlRequest = completeUrl(path: path) else{ return }
         
-        guard var urlRequest = completeUrl(path: .postUser) else{ return }
+        guard let jsonData = try? JSONEncoder().encode(body) else { return }
+                
         
         urlRequest.httpMethod = "POST"
         urlRequest.setValue("application/json", forHTTPHeaderField: "accept")
@@ -30,18 +44,46 @@ enum WebService{
         let task = URLSession.shared.dataTask(with: urlRequest){
             data, response, error in
             guard let data = data, error == nil else {
-                print(error)
+                print(error as Any)
+                completion(.failure(.internalServerError, nil))
                 return
             }
             
-            print(String(data: data, encoding: .utf8))
-            print("Response \n")
-            print(response)
-            
             if let res = response as? HTTPURLResponse{
-                print(res.statusCode)
+                switch res.statusCode {
+                case 200:
+                    completion(.success(data))
+                    break
+                case 400:
+                    completion(.failure(.badRequest, data))
+                    break
+                default:
+                    break
+                }
             }
+            
+            
+            print("Response \n")
+            print(response as Any)
+            
+           
         }
         task.resume()
+    }
+    
+    static func postUser(request: SignUpRequest){
+        call(path: .postUser, body: request, completion: {
+            result in
+            switch result {
+            case .failure(let error, let data):
+                if let data = data {
+                    print(String(data: data, encoding: .utf8) as Any)
+                }
+                break
+            case .success(let data):
+                print(String(data: data, encoding: .utf8) as Any)
+                break
+            }
+        })
     }
 }

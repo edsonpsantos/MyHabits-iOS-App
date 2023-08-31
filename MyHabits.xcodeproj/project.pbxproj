@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2D37A7E42A9FE57700989837 /* LocalEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D37A7E32A9FE57700989837 /* LocalEnvironment.swift */; };
 		2D74EAC42A8D4D0400B05252 /* SigInUIState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D74EAC32A8D4D0400B05252 /* SigInUIState.swift */; };
 		2D74EAC62A8D57B000B05252 /* SignInViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D74EAC52A8D57B000B05252 /* SignInViewRouter.swift */; };
 		2D74EACC2A8D587F00B05252 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D74EACB2A8D587F00B05252 /* HomeView.swift */; };
@@ -26,6 +25,7 @@
 		2DA496C92A8BC9050095008F /* SplashViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA496C82A8BC9050095008F /* SplashViewRouter.swift */; };
 		2DCF522F2A968AC700CC7D12 /* EditTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCF522E2A968AC700CC7D12 /* EditTextView.swift */; };
 		2DCF52322A96990700CC7D12 /* CustomTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCF52312A96990700CC7D12 /* CustomTextFieldStyle.swift */; };
+		2DD003AE2AA11A3D005E364C /* LocalEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD003AD2AA11A3D005E364C /* LocalEnvironment.swift */; };
 		2DD1592E2A97E495008DED2D /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD1592D2A97E495008DED2D /* String+Extension.swift */; };
 		2DD159302A97E897008DED2D /* LoadingButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD1592F2A97E897008DED2D /* LoadingButtonView.swift */; };
 		2DD2ED4F2A8AAB89005425F5 /* SplashUIState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD2ED4E2A8AAB89005425F5 /* SplashUIState.swift */; };
@@ -35,7 +35,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2D37A7E32A9FE57700989837 /* LocalEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalEnvironment.swift; sourceTree = "<group>"; };
 		2D74EAC32A8D4D0400B05252 /* SigInUIState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigInUIState.swift; sourceTree = "<group>"; };
 		2D74EAC52A8D57B000B05252 /* SignInViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewRouter.swift; sourceTree = "<group>"; };
 		2D74EACB2A8D587F00B05252 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -55,6 +54,7 @@
 		2DA496C82A8BC9050095008F /* SplashViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewRouter.swift; sourceTree = "<group>"; };
 		2DCF522E2A968AC700CC7D12 /* EditTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTextView.swift; sourceTree = "<group>"; };
 		2DCF52312A96990700CC7D12 /* CustomTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFieldStyle.swift; sourceTree = "<group>"; };
+		2DD003AD2AA11A3D005E364C /* LocalEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalEnvironment.swift; sourceTree = "<group>"; };
 		2DD1592D2A97E495008DED2D /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		2DD1592F2A97E897008DED2D /* LoadingButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingButtonView.swift; sourceTree = "<group>"; };
 		2DD2ED4E2A8AAB89005425F5 /* SplashUIState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashUIState.swift; sourceTree = "<group>"; };
@@ -157,7 +157,7 @@
 		2D9750312A9FDD1A007E07B9 /* Environment */ = {
 			isa = PBXGroup;
 			children = (
-				2D37A7E32A9FE57700989837 /* LocalEnvironment.swift */,
+				2DD003AD2AA11A3D005E364C /* LocalEnvironment.swift */,
 			);
 			path = Environment;
 			sourceTree = "<group>";
@@ -389,6 +389,7 @@
 				2D8649C02A8A9F2500B765FF /* MyHabitsApp.swift in Sources */,
 				2DD159302A97E897008DED2D /* LoadingButtonView.swift in Sources */,
 				2DD1592E2A97E495008DED2D /* String+Extension.swift in Sources */,
+				2DD003AE2AA11A3D005E364C /* LocalEnvironment.swift in Sources */,
 				2DECDC4E2A8FFD2000C84F11 /* SignUpViewRouter.swift in Sources */,
 				2DA496C92A8BC9050095008F /* SplashViewRouter.swift in Sources */,
 				2D74EACC2A8D587F00B05252 /* HomeView.swift in Sources */,
@@ -401,7 +402,6 @@
 				2DA475C92A8E9B02009E5178 /* SignUpView.swift in Sources */,
 				2DA496BF2A8BB6C50095008F /* SplashViewModel.swift in Sources */,
 				2D74EAC42A8D4D0400B05252 /* SigInUIState.swift in Sources */,
-				2D37A7E42A9FE57700989837 /* LocalEnvironment.swift in Sources */,
 				2D7FB9482AA10B390042CDF3 /* SignUpRequest.swift in Sources */,
 				2DCF52322A96990700CC7D12 /* CustomTextFieldStyle.swift in Sources */,
 				2DCF522F2A968AC700CC7D12 /* EditTextView.swift in Sources */,
