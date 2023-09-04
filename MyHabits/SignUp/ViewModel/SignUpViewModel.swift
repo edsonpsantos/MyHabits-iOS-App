@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 
 class SignUpViewModel: ObservableObject {
- 
+    
     @Published var fullName: String = ""
     @Published var email: String = ""
     @Published var password: String = ""
@@ -46,16 +46,14 @@ class SignUpViewModel: ObservableObject {
         WebService.postUser(request: SignUpRequest(fullName: fullName,
                                                    email: email,
                                                    password: password,
-                                                   document: document, 
+                                                    document: document,
                                                    phoneNumber: phoneNumber,
                                                    birthday: birthday,
-                                                   gender: gender.index))
-        
-       // DispatchQueue.main.asyncAfter(deadline: .now() + 2){
-       //     //self.uiState = .error("User already exist!")
-       //     self.uiState = .success
-       //     self.publisher.send(true)
-       // }
+                                                   gender: gender.index),
+                            completion: {(successResponse, errorResponse) in
+            if let error = errorResponse {
+                self.uiState = .error((error.detail))
+            }})
     }
 }
 
