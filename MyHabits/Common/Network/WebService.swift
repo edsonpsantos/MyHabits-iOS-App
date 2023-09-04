@@ -21,13 +21,13 @@ enum WebService{
         case failure(NetworkError, Data?)
     }
     
-    private static func completeUrl(path: LocalEnvironment) -> URLRequest? {
-        guard let url = URL(string: "\(LocalEnvironment.baseUrl.rawValue)\(path.rawValue)") else{return nil}
+    private static func completeUrl(path: Endpoint) -> URLRequest? {
+        guard let url = URL(string: "\(Endpoint.baseURL.rawValue)\(path.rawValue)") else{return nil}
         
                 return URLRequest(url: url)
     }
     
-    private static func call<T: Encodable>(path: LocalEnvironment,
+    private static func call<T: Encodable>(path: Endpoint,
                                            body: T,
                                            completion: @escaping (Result)-> Void){
         
@@ -41,6 +41,7 @@ enum WebService{
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         urlRequest.httpBody = jsonData
         
+        //Background running (Non-Main Thread
         let task = URLSession.shared.dataTask(with: urlRequest){
             data, response, error in
             guard let data = data, error == nil else {
@@ -82,7 +83,7 @@ enum WebService{
                 }
                 break
             case .success(let data):
-                print(String(data: data, encoding: .utf8) as Any)
+                completion(true,nil)
                 break
             }
         })

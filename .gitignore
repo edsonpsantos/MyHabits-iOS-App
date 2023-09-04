@@ -92,3 +92,6 @@ fastlane/test_output
 
 iOSInjectionProject/
 MyHabits/Common/Environment/LocalEnvironment.swift
+MyHabits/Common/Environment/Endpoint.swift
+MyHabits/Common/Environment/._LocalEndpoint.swift
+MyHabits/Common/Environment/LocalEndpoint.swift
