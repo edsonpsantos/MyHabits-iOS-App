@@ -15,7 +15,7 @@ class SignInViewModel: ObservableObject{
     
     @Published var email = ""
     @Published var password = ""
-   
+    
     @Published var uiState: SigInUIState = .none
     
     init(){
@@ -33,13 +33,22 @@ class SignInViewModel: ObservableObject{
     func login(){
         self.uiState = .loading
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2){
-            //self.uiState = .error("Usuário ou senha invalidos.")
-            self.uiState = .goToHomeScreen
+        WebService.login(request: SignInRequest(email: email, password: password)) {(successResponse, errorResponse) in
+            if let error = errorResponse {
+                //Main Thread
+                DispatchQueue.main.async {
+                    self.uiState = .error(error.detail)
+                }
+            }
+            
+            if let success = successResponse {
+                DispatchQueue.main.async {
+                    print(success)
+                    self.uiState = .goToHomeScreen
+                }
+            }
         }
-        
     }
-    
 }
 
 extension SignInViewModel {

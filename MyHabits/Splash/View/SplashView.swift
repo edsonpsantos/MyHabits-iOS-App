@@ -10,8 +10,7 @@ import SwiftUI
 struct SplashView: View {
     
     @ObservedObject var viewModel: SplashViewModel
-    
-    
+
     var body: some View{
         Group{
             switch viewModel.uiState {
@@ -95,7 +94,7 @@ extension SplashView{
                 .scaledToFit()
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .padding(20)
-                .background(.white)
+                .background(. )
                 .ignoresSafeArea()
         }
     }

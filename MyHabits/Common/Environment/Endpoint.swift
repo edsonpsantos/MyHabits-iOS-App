@@ -10,4 +10,5 @@ enum Endpoint: String {
   case baseURL = "YOUR BASE URL"
   
   case postUser = "/YOUR POST USER"
+    case login = "/YOUR LOGIN URL"
 }
