@@ -7,6 +7,8 @@
 
 import Foundation
 
+//is not a Encodable struct
+//because this code is a pratice to use the properties as a url parameters
 struct SignInRequest {
     let email: String
     let password: String

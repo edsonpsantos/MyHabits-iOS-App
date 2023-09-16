@@ -33,11 +33,11 @@ class SignInViewModel: ObservableObject{
     func login(){
         self.uiState = .loading
         
-        WebService.login(request: SignInRequest(email: email, password: password)) {(successResponse, errorResponse) in
+        WebService.login(loginRequest: SignInRequest(email: email, password: password)) {(successResponse, errorResponse) in
             if let error = errorResponse {
                 //Main Thread
                 DispatchQueue.main.async {
-                    self.uiState = .error(error.detail)
+                    self.uiState = .error(error.detail.message)
                 }
             }
             

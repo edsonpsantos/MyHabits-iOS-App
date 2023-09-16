@@ -44,7 +44,7 @@ class SignUpViewModel: ObservableObject {
         let birthday = formatter.string(from: dateFormatted)
         
         //Main Thread execution
-        WebService.postUser(request: SignUpRequest(fullName: fullName,
+        WebService.postUser(signUpRequest: SignUpRequest(fullName: fullName,
                                                    email: email,
                                                    password: password,
                                                    document: document,
@@ -62,12 +62,21 @@ class SignUpViewModel: ObservableObject {
             
             //TODO: Refactor DRY
             if let success = successResponse{
-                DispatchQueue.main.async {
-                    self.publisher.send(success)
-                    if success {
-                        self.uiState = .success
+                WebService.login(loginRequest: SignInRequest(email: self.email, password: self.password)) {(successResponse, errorResponse) in
+                    if let errorSignIn = errorResponse {
+                        //Main Thread
+                        DispatchQueue.main.async {
+                            self.uiState = .error(errorSignIn.detail.message)
+                        }
                     }
                     
+                    if let successSignIn = successResponse {
+                        DispatchQueue.main.async {
+                            print(successSignIn)
+                            self.publisher.send(success)
+                            self.uiState = .success
+                        }
+                    }
                 }
             }
         })
