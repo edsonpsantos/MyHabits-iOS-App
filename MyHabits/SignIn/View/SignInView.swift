@@ -72,6 +72,7 @@ extension SignInView{
                      keyboard: .emailAddress,
                      error: "Invalid E-mail",
                      failure: !viewModel.email.isEmail())
+        .autocapitalization(.none)
     }
 }
 
@@ -79,7 +80,7 @@ extension SignInView{
     var passwordField: some View{
         EditTextView(text: $viewModel.password,
                      placeholder: "Password",
-                     keyboard: .emailAddress,
+                     keyboard: .numberPad,
                      error: "The password must have at least 8 characters",
                      failure: viewModel.password.count < 8,
                      isSecure: true)
@@ -119,7 +120,7 @@ extension SignInView{
 
 struct SignInView_Previews: PreviewProvider {
     static var previews: some View {
-        let viewModel = SignInViewModel()
+        let viewModel = SignInViewModel(interactor: SignInInteractor())
         ForEach(ColorScheme.allCases, id: \.self) { colorValue in
             VStack{
                 SignInView(viewModel: viewModel)

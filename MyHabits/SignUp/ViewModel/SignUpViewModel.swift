@@ -62,7 +62,7 @@ class SignUpViewModel: ObservableObject {
             
             //TODO: Refactor DRY
             if let success = successResponse{
-                WebService.login(loginRequest: SignInRequest(email: self.email, password: self.password)) {(successResponse, errorResponse) in
+                /*WebService.login(loginRequest: SignInRequest(email: self.email, password: self.password)) {(successResponse, errorResponse) in
                     if let errorSignIn = errorResponse {
                         //Main Thread
                         DispatchQueue.main.async {
@@ -77,7 +77,7 @@ class SignUpViewModel: ObservableObject {
                             self.uiState = .success
                         }
                     }
-                }
+                }*/
             }
         })
     }

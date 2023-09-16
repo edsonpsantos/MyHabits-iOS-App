@@ -69,6 +69,7 @@ extension SignUpView {
                      keyboard: .emailAddress,
                      error: "Invalid e-mail format",
                      failure: !viewModel.email.isEmail())
+            .autocapitalization(.none)
     }
 }
 
@@ -76,7 +77,7 @@ extension SignUpView {
     var passwordField: some View{
         EditTextView(text: $viewModel.password,
                      placeholder: "Your Password *",
-                     keyboard: .emailAddress,
+                     keyboard: .numberPad,
                      error: "The password must have at least 8 characters",
                      failure: viewModel.password.count < 8,
                      isSecure: true)

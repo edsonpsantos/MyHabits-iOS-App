@@ -12,13 +12,16 @@ class SignInViewModel: ObservableObject{
     
     private var cancellable: AnyCancellable?
     private let publisher = PassthroughSubject<Bool,Never>()
+    private let interactor: SignInInteractor
     
     @Published var email = ""
     @Published var password = ""
     
     @Published var uiState: SigInUIState = .none
     
-    init(){
+    //Interactor - Dependeny Injected
+    init(interactor: SignInInteractor){
+        self.interactor = interactor
         cancellable = publisher.sink{ value in
             if value {
                 self.uiState = .goToHomeScreen
@@ -33,7 +36,7 @@ class SignInViewModel: ObservableObject{
     func login(){
         self.uiState = .loading
         
-        WebService.login(loginRequest: SignInRequest(email: email, password: password)) {(successResponse, errorResponse) in
+        interactor.login(loginRequest: SignInRequest(email: email, password: password)) {(successResponse, errorResponse) in
             if let error = errorResponse {
                 //Main Thread
                 DispatchQueue.main.async {
