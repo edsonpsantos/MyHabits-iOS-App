@@ -16,7 +16,7 @@ struct SignInView: View {
     
     var body: some View{
         ZStack{
-            if case SigInUIState.goToHomeScreen = viewModel.uiState {
+            if case SignInUIState.goToHomeScreen = viewModel.uiState {
                 viewModel.homeView()
             }else{
                 NavigationView {
@@ -45,7 +45,7 @@ struct SignInView: View {
                                     .padding(.top, 16)
                             }
                         }
-                        if case SigInUIState.error(let value)=viewModel.uiState{
+                        if case SignInUIState.error(let value)=viewModel.uiState{
                             Text("")
                                 .alert(isPresented: .constant(true)){
                                     Alert(title: Text("My Habits"), message: Text(value), dismissButton: .default(Text("Ok")){
@@ -92,7 +92,7 @@ extension SignInView{
         LoadingButtonView(action: {viewModel.login()},
                           text: "Log In",
                           disabled: !viewModel.email.isEmail() || viewModel.password.count < 8,
-                          showProgressBar: self.viewModel.uiState == SigInUIState.loading)
+                          showProgressBar: self.viewModel.uiState == SignInUIState.loading)
     }
 }
 

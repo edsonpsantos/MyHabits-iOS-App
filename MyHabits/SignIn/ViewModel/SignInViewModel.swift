@@ -11,13 +11,15 @@ import Combine
 class SignInViewModel: ObservableObject{
     
     private var cancellable: AnyCancellable?
+    private var cancellableRequest: AnyCancellable?
+    
     private let publisher = PassthroughSubject<Bool,Never>()
     private let interactor: SignInInteractor
     
     @Published var email = ""
     @Published var password = ""
     
-    @Published var uiState: SigInUIState = .none
+    @Published var uiState: SignInUIState = .none
     
     //Interactor - Dependeny Injected
     init(interactor: SignInInteractor){
@@ -31,12 +33,32 @@ class SignInViewModel: ObservableObject{
     
     deinit{
         cancellable?.cancel()
+        cancellableRequest?.cancel()
     }
     
     func login(){
         self.uiState = .loading
         
-        interactor.login(loginRequest: SignInRequest(email: email, password: password)) {(successResponse, errorResponse) in
+        cancellableRequest = interactor.login(loginRequest: SignInRequest(email: email, password: password))
+            .receive(on: DispatchQueue.main)
+            .sink { completion in
+                //Here is calling Failure or Finished event
+                switch (completion) {
+                case .failure(let appError):
+                    self.uiState = SignInUIState.error(appError.message)
+                    break
+                case .finished:
+                    break
+                }
+            } receiveValue: { success in
+                // Here is calling Success event
+                print(success)
+                self.uiState = .goToHomeScreen
+            }
+
+        
+        /* Removed to use Combine for Swift more reactive
+         interactor.login(loginRequest: SignInRequest(email: email, password: password)) {(successResponse, errorResponse) in
             if let error = errorResponse {
                 //Main Thread
                 DispatchQueue.main.async {
@@ -50,7 +72,7 @@ class SignInViewModel: ObservableObject{
                     self.uiState = .goToHomeScreen
                 }
             }
-        }
+        }*/
     }
 }
 

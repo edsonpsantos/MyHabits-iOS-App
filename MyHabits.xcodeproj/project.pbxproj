@@ -36,6 +36,7 @@
 		2DD2ED4F2A8AAB89005425F5 /* SplashUIState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD2ED4E2A8AAB89005425F5 /* SplashUIState.swift */; };
 		2DD9D6362AA91394002FE8E3 /* SignInRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD9D6352AA91394002FE8E3 /* SignInRequest.swift */; };
 		2DD9D6382AA915E0002FE8E3 /* SignInResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD9D6372AA915E0002FE8E3 /* SignInResponse.swift */; };
+		2DDD60802ABA14F1003D67D4 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDD607F2ABA14F1003D67D4 /* AppError.swift */; };
 		2DECDC4C2A8FFC0D00C84F11 /* SignUpUIState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DECDC4B2A8FFC0D00C84F11 /* SignUpUIState.swift */; };
 		2DECDC4E2A8FFD2000C84F11 /* SignUpViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DECDC4D2A8FFD2000C84F11 /* SignUpViewRouter.swift */; };
 		2DF2EC162AB5C6080034340E /* SignInErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF2EC152AB5C6080034340E /* SignInErrorResponse.swift */; };
@@ -73,6 +74,7 @@
 		2DD2ED4E2A8AAB89005425F5 /* SplashUIState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashUIState.swift; sourceTree = "<group>"; };
 		2DD9D6352AA91394002FE8E3 /* SignInRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRequest.swift; sourceTree = "<group>"; };
 		2DD9D6372AA915E0002FE8E3 /* SignInResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResponse.swift; sourceTree = "<group>"; };
+		2DDD607F2ABA14F1003D67D4 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		2DECDC4B2A8FFC0D00C84F11 /* SignUpUIState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUIState.swift; sourceTree = "<group>"; };
 		2DECDC4D2A8FFD2000C84F11 /* SignUpViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewRouter.swift; sourceTree = "<group>"; };
 		2DF2EC152AB5C6080034340E /* SignInErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInErrorResponse.swift; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 			children = (
 				2DA475CC2A8EA4A8009E5178 /* Gender.swift */,
 				2D718D232AA65E7800D2400D /* ErrorResponse.swift */,
+				2DDD607F2ABA14F1003D67D4 /* AppError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -436,6 +439,7 @@
 				2DA475CD2A8EA4A8009E5178 /* Gender.swift in Sources */,
 				2DECDC4C2A8FFC0D00C84F11 /* SignUpUIState.swift in Sources */,
 				2DA496C72A8BC78A0095008F /* SignInViewModel.swift in Sources */,
+				2DDD60802ABA14F1003D67D4 /* AppError.swift in Sources */,
 				2DFE73EC2A8AA2C6002DCB46 /* SplashView.swift in Sources */,
 				2DA475C92A8E9B02009E5178 /* SignUpView.swift in Sources */,
 				2DA496BF2A8BB6C50095008F /* SplashViewModel.swift in Sources */,
