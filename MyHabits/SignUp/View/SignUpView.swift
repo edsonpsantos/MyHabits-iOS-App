@@ -151,7 +151,7 @@ struct SignUpView_Previews: PreviewProvider{
     static var previews: some View{
         ForEach(ColorScheme.allCases, id: \.self) { colorValue in
             VStack{
-                SignUpView(viewModel: SignUpViewModel())
+                SignUpView(viewModel: SignUpViewModel(interactor: SignUpInteractor()))
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .previewDevice("iPhone 11")

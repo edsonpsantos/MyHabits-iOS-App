@@ -11,7 +11,7 @@ import Combine
 // All variables here
 class SignInInteractor {
     
-    private let remote: RemoteDataSource = .shared
+    private let remote: SignInRemoteDataSource = .shared
     
     // TODO
     //private let local: LocalDataSource

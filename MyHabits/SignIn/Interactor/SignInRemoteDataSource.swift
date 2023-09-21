@@ -10,9 +10,9 @@ import Combine
 
 //Singleton pattern
 //Have a unique instance [life] object inside the application
-class RemoteDataSource {
+class SignInRemoteDataSource {
     
-    static var shared: RemoteDataSource = RemoteDataSource()
+    static var shared: SignInRemoteDataSource = SignInRemoteDataSource()
     
     //avoid creation new instances
     private init(){
