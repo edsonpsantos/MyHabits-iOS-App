@@ -36,6 +36,8 @@
 		2DD2ED4F2A8AAB89005425F5 /* SplashUIState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD2ED4E2A8AAB89005425F5 /* SplashUIState.swift */; };
 		2DD9D6362AA91394002FE8E3 /* SignInRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD9D6352AA91394002FE8E3 /* SignInRequest.swift */; };
 		2DD9D6382AA915E0002FE8E3 /* SignInResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD9D6372AA915E0002FE8E3 /* SignInResponse.swift */; };
+		2DDA3F972ABE036A0024A567 /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDA3F962ABE036A0024A567 /* UserAuth.swift */; };
+		2DDA3F992ABE04A50024A567 /* LocalDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDA3F982ABE04A50024A567 /* LocalDataSource.swift */; };
 		2DDD60802ABA14F1003D67D4 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDD607F2ABA14F1003D67D4 /* AppError.swift */; };
 		2DE71E032ABCAFCF00703231 /* SignUpInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE71E022ABCAFCF00703231 /* SignUpInteractor.swift */; };
 		2DE71E052ABCB1C300703231 /* SignUpRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DE71E042ABCB1C300703231 /* SignUpRemoteDataSource.swift */; };
@@ -76,6 +78,8 @@
 		2DD2ED4E2A8AAB89005425F5 /* SplashUIState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashUIState.swift; sourceTree = "<group>"; };
 		2DD9D6352AA91394002FE8E3 /* SignInRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRequest.swift; sourceTree = "<group>"; };
 		2DD9D6372AA915E0002FE8E3 /* SignInResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResponse.swift; sourceTree = "<group>"; };
+		2DDA3F962ABE036A0024A567 /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
+		2DDA3F982ABE04A50024A567 /* LocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataSource.swift; sourceTree = "<group>"; };
 		2DDD607F2ABA14F1003D67D4 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		2DE71E022ABCAFCF00703231 /* SignUpInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInteractor.swift; sourceTree = "<group>"; };
 		2DE71E042ABCB1C300703231 /* SignUpRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRemoteDataSource.swift; sourceTree = "<group>"; };
@@ -181,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				2D9750292A9FC94E007E07B9 /* WebService.swift */,
+				2DDA3F982ABE04A50024A567 /* LocalDataSource.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -250,6 +255,7 @@
 				2DA475CC2A8EA4A8009E5178 /* Gender.swift */,
 				2D718D232AA65E7800D2400D /* ErrorResponse.swift */,
 				2DDD607F2ABA14F1003D67D4 /* AppError.swift */,
+				2DDA3F962ABE036A0024A567 /* UserAuth.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -439,6 +445,7 @@
 				2D8649C02A8A9F2500B765FF /* MyHabitsApp.swift in Sources */,
 				2D554B1B2AB5D328001C6533 /* SignInRemoteDataSource.swift in Sources */,
 				2DD159302A97E897008DED2D /* LoadingButtonView.swift in Sources */,
+				2DDA3F992ABE04A50024A567 /* LocalDataSource.swift in Sources */,
 				2D718D222AA65AA500D2400D /* SignUpResponse.swift in Sources */,
 				2D718D242AA65E7800D2400D /* ErrorResponse.swift in Sources */,
 				2DD1592E2A97E495008DED2D /* String+Extension.swift in Sources */,
@@ -453,6 +460,7 @@
 				2DA475CD2A8EA4A8009E5178 /* Gender.swift in Sources */,
 				2DECDC4C2A8FFC0D00C84F11 /* SignUpUIState.swift in Sources */,
 				2DE71E032ABCAFCF00703231 /* SignUpInteractor.swift in Sources */,
+				2DDA3F972ABE036A0024A567 /* UserAuth.swift in Sources */,
 				2DA496C72A8BC78A0095008F /* SignInViewModel.swift in Sources */,
 				2DDD60802ABA14F1003D67D4 /* AppError.swift in Sources */,
 				2DFE73EC2A8AA2C6002DCB46 /* SplashView.swift in Sources */,

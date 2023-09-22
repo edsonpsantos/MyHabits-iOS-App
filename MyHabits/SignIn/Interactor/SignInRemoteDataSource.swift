@@ -13,7 +13,7 @@ import Combine
 class SignInRemoteDataSource {
     
     static var shared: SignInRemoteDataSource = SignInRemoteDataSource()
-    
+   
     //avoid creation new instances
     private init(){
     }

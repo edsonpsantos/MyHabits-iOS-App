@@ -12,9 +12,8 @@ import Combine
 class SignInInteractor {
     
     private let remote: SignInRemoteDataSource = .shared
-    
-    // TODO
-    //private let local: LocalDataSource
+
+    private let local: LocalDataSource = .shared
 }
 
 //Specifying all business logic here
@@ -22,5 +21,9 @@ extension SignInInteractor {
     
     func login(loginRequest: SignInRequest) -> Future<SignInResponse, AppError>{
         return remote.login(loginRequest: loginRequest)
+    }
+    
+    func insertAuth (userAuth: UserAuth) {
+        local.insertUserAuth(userAuth: userAuth)
     }
 }

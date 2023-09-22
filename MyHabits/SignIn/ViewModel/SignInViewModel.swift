@@ -52,27 +52,12 @@ class SignInViewModel: ObservableObject{
                 }
             } receiveValue: { success in
                 // Here is calling Success event
-                print(success)
+                let auth = UserAuth(idToken: success.accessToken, refreshToken: success.refreshToken, expires: success.expires, tokenType: success.tokenType)
+                
+                self.interactor.insertAuth(userAuth: auth)
+                
                 self.uiState = .goToHomeScreen
             }
-
-        
-        /* Removed to use Combine for Swift more reactive
-         interactor.login(loginRequest: SignInRequest(email: email, password: password)) {(successResponse, errorResponse) in
-            if let error = errorResponse {
-                //Main Thread
-                DispatchQueue.main.async {
-                    self.uiState = .error(error.detail.message)
-                }
-            }
-            
-            if let success = successResponse {
-                DispatchQueue.main.async {
-                    print(success)
-                    self.uiState = .goToHomeScreen
-                }
-            }
-        }*/
     }
 }
 
@@ -85,3 +70,21 @@ extension SignInViewModel {
         return SignInViewRouter.makeSignUpView(publisher: publisher)
     }
 }
+
+
+/* Removed for Swift more reactive with Combine
+ interactor.login(loginRequest: SignInRequest(email: email, password: password)) {(successResponse, errorResponse) in
+    if let error = errorResponse {
+        //Main Thread
+        DispatchQueue.main.async {
+            self.uiState = .error(error.detail.message)
+        }
+    }
+    
+    if let success = successResponse {
+        DispatchQueue.main.async {
+            print(success)
+            self.uiState = .goToHomeScreen
+        }
+    }
+}*/
