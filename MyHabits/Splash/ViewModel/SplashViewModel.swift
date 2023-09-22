@@ -6,14 +6,41 @@
 //
 
 import SwiftUI
+import Combine
 
 class SplashViewModel:ObservableObject{
     @Published var uiState: SplashUIState = .loading
     
-    //Faz algo async e altera o estado da uiState
+    private var cancellableAuth: AnyCancellable?
+    
+    private let interactor: SplashInteractor
+    
+    init(interactor: SplashInteractor) {
+        self.interactor = interactor
+    }
+    
+    deinit{
+        cancellableAuth?.cancel()
+    }
+    //Do something async and change the state of the uiState
     func onAppear(){
-        //Simula latencia de rede até o backend estiver pronto
-        //Aguarda 3 segundos e depois executa algo
+        let currentDate = Date().timeIntervalSince1970
+        
+        cancellableAuth = interactor.fetchAuth()
+            .delay(for: .seconds(3), scheduler: RunLoop.main)
+            .receive(on: DispatchQueue.main)
+            .sink { userAuth in
+                if userAuth == nil {
+                    self.uiState = .goToSignInScreen
+                } else if (currentDate > currentDate + Double(userAuth! .expires)) {
+                    //call refreshToken
+                } else {
+                    self.uiState = .goToHomeScreen
+                }
+            }
+        
+        //Simulates network latency until the backend is ready
+        //Wait 3 seconds and then execute something
         DispatchQueue.main.asyncAfter(deadline: .now() + 3){
             self.uiState = .goToSignInScreen
         }

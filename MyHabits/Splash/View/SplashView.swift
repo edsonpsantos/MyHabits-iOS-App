@@ -56,7 +56,7 @@ struct SplashView_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) { colorValue in
             VStack{
-                let viewModel = SplashViewModel()
+                let viewModel = SplashViewModel(interactor: SplashInteractor())
                 SplashView(viewModel: viewModel)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
