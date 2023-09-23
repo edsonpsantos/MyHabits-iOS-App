@@ -11,7 +11,7 @@ struct SignInResponse: Decodable {
     
     let accessToken: String
     let refreshToken: String
-    let expires: Int
+    let expires: Double
     let tokenType: String
     
     enum CodingKeys: String, CodingKey {

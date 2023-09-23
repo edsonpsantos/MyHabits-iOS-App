@@ -52,7 +52,10 @@ class SignInViewModel: ObservableObject{
                 }
             } receiveValue: { success in
                 // Here is calling Success event
-                let auth = UserAuth(idToken: success.accessToken, refreshToken: success.refreshToken, expires: success.expires, tokenType: success.tokenType)
+                let auth = UserAuth(idToken: success.accessToken,
+                                    refreshToken: success.refreshToken,
+                                    expires: Date().timeIntervalSince1970 + success.expires,
+                                    tokenType: success.tokenType)
                 
                 self.interactor.insertAuth(userAuth: auth)
                 
