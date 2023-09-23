@@ -12,6 +12,7 @@ class SplashViewModel:ObservableObject{
     @Published var uiState: SplashUIState = .loading
     
     private var cancellableAuth: AnyCancellable?
+    private var cancellableRefresh: AnyCancellable?
     
     private let interactor: SplashInteractor
     
@@ -21,6 +22,7 @@ class SplashViewModel:ObservableObject{
     
     deinit{
         cancellableAuth?.cancel()
+        cancellableRefresh?.cancel()
     }
     //Do something async and change the state of the uiState
     func onAppear(){
@@ -35,16 +37,32 @@ class SplashViewModel:ObservableObject{
                 } else if (currentDate > Double(userAuth!.expires)) {
                     //call refreshToken
                     print("Expired token")
+                    let request = RefreshRequest(token: userAuth!.refreshToken)
+                    self.cancellableRefresh = self.interactor.refreshToken(refreshRequest: request)
+                        .receive(on: DispatchQueue.main)
+                        .sink(receiveCompletion: { completion in
+                            switch(completion){
+                            case .failure(_):
+                                self.uiState = .goToSignInScreen
+                                break
+                            default:
+                                break
+                            }
+                        }, receiveValue: { success in
+                            
+                            let userAuth = UserAuth(idToken: success.accessToken,
+                                                    refreshToken: success.refreshToken,
+                                                    expires: Date().timeIntervalSince1970 + success.expires ,
+                                                    tokenType: success.tokenType)
+                            
+                            self.interactor.insertUserAuth(userAuth: userAuth )
+                            self.uiState = .goToHomeScreen
+                            
+                        })
                 } else {
                     self.uiState = .goToHomeScreen
                 }
             }
-        
-        //Simulates network latency until the backend is ready
-        //Wait 3 seconds and then execute something
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3){
-            self.uiState = .goToSignInScreen
-        }
     }
 }
 
