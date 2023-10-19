@@ -16,14 +16,31 @@ struct HabitView: View {
         ZStack {
             if case HabitUIState.loading=viewModel.uiState{
                 progress
-            } else if case HabitUIState.emptyList = viewModel.uiState{
+            } else{
                 
-            }
-            else if case HabitUIState.fullList = viewModel.uiState{
-                
-            }
-            else if case HabitUIState.error = viewModel.uiState{
-                
+                NavigationView {
+                    ScrollView(showsIndicators: false) {
+                        VStack{
+                            topContainer
+                            
+                            addButton
+                            
+                            if case HabitUIState.emptyList = viewModel.uiState{
+                                Spacer(minLength: 60)
+                                VStack{
+                                    Image(systemName: "exclamationmark.octagon.fill")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 24, height: 24, alignment: .center)
+                                    Text("No habits found :(")
+                                }
+                            }
+                            else if case HabitUIState.fullList = viewModel.uiState{}
+                            else if case HabitUIState.error = viewModel.uiState{}
+                        }
+                    }
+                    .navigationBarTitle(Text("My Habits"))
+                }
             }
         }
     }
@@ -35,10 +52,53 @@ extension HabitView{
         ProgressView()
     }
 }
+extension HabitView {
+    var addButton: some View{
+        NavigationLink {
+            Text("Add Habit Screen").frame(maxWidth: .infinity, maxHeight: .infinity)
+        } label: {
+            Label("Create Habit", systemImage: "plus.app")
+        }
+        .padding(.horizontal, 16)
+    }
+}
+
+extension HabitView{
+    var topContainer: some View{
+        VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 12) {
+            Image(systemName: "exclamationmark.triangle")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 50, height: 50, alignment: .center)
+            
+            Text(viewModel.title)
+                .font(.title).bold()
+                .foregroundColor(Color.orange)
+            
+            Text(viewModel.headline)
+                .font(.title3).bold()
+                .foregroundColor(Color("textColor"))
+            
+            Text(viewModel.description)
+                .font(.subheadline)
+                .foregroundColor(Color("textColor"))
+        }
+        .frame(maxWidth:   .infinity)
+        .padding(.vertical,32)
+        .overlay(
+            RoundedRectangle(cornerRadius: 6)
+                .stroke(Color.gray, lineWidth:1))
+        .padding(.horizontal,16)
+        .padding(.top, 16)
+    }
+}
 
 
 struct HabitView_Previews: PreviewProvider{
     static var previews: some View{
-        HomeViewRouter.makeHabitView()
+        ForEach(ColorScheme.allCases, id: \.self) { HomeViewRouter.makeHabitView()
+                .previewDevice("iPhone 15Pro")
+                .preferredColorScheme($0)
+        }
     }
 }

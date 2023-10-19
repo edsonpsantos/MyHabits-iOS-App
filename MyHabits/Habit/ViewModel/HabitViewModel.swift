@@ -9,5 +9,8 @@ import Foundation
 
 class HabitViewModel: ObservableObject {
     
-    @Published var uiState: HabitUIState = .loading
+    @Published var uiState: HabitUIState = .emptyList
+    @Published var title = "Attention"
+    @Published var headline = "Be up to date"
+    @Published var description = "Your habits are outdated"
 }
