@@ -23,12 +23,12 @@ struct HomeView:View{
             Text("Graphics Content \(selection)")
                 .tabItem {
                     Image(systemName: "chart.bar")
-                    Text("Graphics")
+                    Text("Charts")
             }.tag(1)
             
             Text("Profile Content \(selection)")
                 .tabItem {
-                    Image(systemName: "person.circle")
+                    Image(systemName: "person.crop.circle")
                     Text("Profile")
             }.tag(2)
         }
