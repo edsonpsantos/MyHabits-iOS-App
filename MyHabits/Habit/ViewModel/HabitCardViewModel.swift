@@ -12,7 +12,7 @@ import SwiftUI
  Indentifiable -> by Id
  Equatable -> To do compare components
  */
-struct HabitCardViewModel: Identifiable, Equatable {
+struct HabitCardViewModel : Identifiable, Equatable {
     
     var id: Int = 0
     var icon: String = ""

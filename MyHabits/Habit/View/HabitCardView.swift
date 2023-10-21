@@ -27,7 +27,7 @@ struct HabitCardView: View {
                 self.actionButton = true
             }, label: {
                 HStack {
-                    Image(systemName:"pencil")
+                    Image(systemName:"square.and.pencil")
                         .padding(.horizontal, 8)
                     
                     Spacer()

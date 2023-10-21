@@ -41,7 +41,17 @@ struct HabitView: View {
                                     ForEach(rows, content: HabitCardView.init(viewModel:))
                                 }.padding(.horizontal,14)
                             }
-                            else if case HabitUIState.error = viewModel.uiState{}
+                            else if case HabitUIState.error(let message) = viewModel.uiState {
+                                
+                                Text(message).alert(isPresented: .constant(true)){
+                                    Alert(title: Text("Ups! \(message)"),
+                                          message: Text("Try again ?"),
+                                          primaryButton: .default(Text("Yes")){
+                                        viewModel.onAppear()
+                                    },
+                                          secondaryButton: .cancel())
+                                }
+                            }
                         }
                     }
                     .navigationBarTitle(Text("My Habits"))

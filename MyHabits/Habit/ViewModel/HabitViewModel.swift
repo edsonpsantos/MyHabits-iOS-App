@@ -15,9 +15,9 @@ class HabitViewModel: ObservableObject {
     @Published var description = "Your habits are outdated"
     
     func onAppear(){
-        self.uiState = .loading
+        self.uiState = .emptyList
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             
             var rows:[HabitCardViewModel] = []
             
@@ -61,7 +61,8 @@ class HabitViewModel: ObservableObject {
                                            value: "2",
                                            state: .blue))
             
-            self.uiState = .fullList(rows)
+            //self.uiState = .fullList(rows)
+            self.uiState = .error("Internal Server Error")
             
         }
     }
