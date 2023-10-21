@@ -20,7 +20,7 @@ struct HabitView: View {
                 
                 NavigationView {
                     ScrollView(showsIndicators: false) {
-                        VStack{
+                        VStack(spacing: 12){
                             topContainer
                             
                             addButton
@@ -58,6 +58,7 @@ extension HabitView {
             Text("Add Habit Screen").frame(maxWidth: .infinity, maxHeight: .infinity)
         } label: {
             Label("Create Habit", systemImage: "plus.app")
+                .modifier(ButtonStyle())
         }
         .padding(.horizontal, 16)
     }

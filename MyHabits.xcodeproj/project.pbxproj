@@ -11,6 +11,7 @@
 		2D2AACC72AC4A0B600CB28CC /* HabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2AACC62AC4A0B600CB28CC /* HabitView.swift */; };
 		2D2AACC92AC4A0E000CB28CC /* HabitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2AACC82AC4A0E000CB28CC /* HabitViewModel.swift */; };
 		2D2AACCB2AC4A39200CB28CC /* HabitUIState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2AACCA2AC4A39200CB28CC /* HabitUIState.swift */; };
+		2D2FB8EB2AE3F05100C0D2A9 /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2FB8EA2AE3F05100C0D2A9 /* ButtonStyle.swift */; };
 		2D554B192AB5D046001C6533 /* SignInInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D554B182AB5D046001C6533 /* SignInInteractor.swift */; };
 		2D554B1B2AB5D328001C6533 /* SignInRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D554B1A2AB5D328001C6533 /* SignInRemoteDataSource.swift */; };
 		2D718D222AA65AA500D2400D /* SignUpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D718D212AA65AA500D2400D /* SignUpResponse.swift */; };
@@ -59,6 +60,7 @@
 		2D2AACC62AC4A0B600CB28CC /* HabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitView.swift; sourceTree = "<group>"; };
 		2D2AACC82AC4A0E000CB28CC /* HabitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitViewModel.swift; sourceTree = "<group>"; };
 		2D2AACCA2AC4A39200CB28CC /* HabitUIState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitUIState.swift; sourceTree = "<group>"; };
+		2D2FB8EA2AE3F05100C0D2A9 /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
 		2D554B182AB5D046001C6533 /* SignInInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInInteractor.swift; sourceTree = "<group>"; };
 		2D554B1A2AB5D328001C6533 /* SignInRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRemoteDataSource.swift; sourceTree = "<group>"; };
 		2D718D212AA65AA500D2400D /* SignUpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpResponse.swift; sourceTree = "<group>"; };
@@ -146,6 +148,14 @@
 				2D2AACC62AC4A0B600CB28CC /* HabitView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		2D2FB8E92AE3F03B00C0D2A9 /* Modifier */ = {
+			isa = PBXGroup;
+			children = (
+				2D2FB8EA2AE3F05100C0D2A9 /* ButtonStyle.swift */,
+			);
+			path = Modifier;
 			sourceTree = "<group>";
 		};
 		2D554B172AB5D036001C6533 /* Interactor */ = {
@@ -361,6 +371,7 @@
 		2DCF522D2A968AB400CC7D12 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2D2FB8E92AE3F03B00C0D2A9 /* Modifier */,
 				2DCF52302A9698EE00CC7D12 /* Style */,
 				2DCF522E2A968AC700CC7D12 /* EditTextView.swift */,
 				2DD1592F2A97E897008DED2D /* LoadingButtonView.swift */,
@@ -509,6 +520,7 @@
 				2DDA3F992ABE04A50024A567 /* LocalDataSource.swift in Sources */,
 				2D718D222AA65AA500D2400D /* SignUpResponse.swift in Sources */,
 				2D718D242AA65E7800D2400D /* ErrorResponse.swift in Sources */,
+				2D2FB8EB2AE3F05100C0D2A9 /* ButtonStyle.swift in Sources */,
 				2D2AACC92AC4A0E000CB28CC /* HabitViewModel.swift in Sources */,
 				2D2AACC72AC4A0B600CB28CC /* HabitView.swift in Sources */,
 				2DD1592E2A97E495008DED2D /* String+Extension.swift in Sources */,
