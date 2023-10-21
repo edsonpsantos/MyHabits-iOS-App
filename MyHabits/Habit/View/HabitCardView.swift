@@ -101,7 +101,7 @@ struct HabitCardView_Previews: PreviewProvider{
                                                        state: .green))
                     
                     HabitCardView(viewModel:
-                                    HabitCardViewModel(id: 1,
+                                    HabitCardViewModel(id: 2,
                                                        icon: "https://placehold.co/150x150",
                                                        date: "01/01/2023",
                                                        name: "Play Drum",

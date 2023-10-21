@@ -35,13 +35,20 @@ struct HabitView: View {
                                     Text("No habits found :(")
                                 }
                             }
-                            else if case HabitUIState.fullList = viewModel.uiState{}
+                            else if case HabitUIState.fullList(let rows) = viewModel.uiState{
+                                // Optmized Multi views elements (LIST ITEMS)
+                                LazyVStack{
+                                    ForEach(rows, content: HabitCardView.init(viewModel:))
+                                }.padding(.horizontal,14)
+                            }
                             else if case HabitUIState.error = viewModel.uiState{}
                         }
                     }
                     .navigationBarTitle(Text("My Habits"))
                 }
             }
+        }.onAppear{
+            viewModel.onAppear()
         }
     }
 }
