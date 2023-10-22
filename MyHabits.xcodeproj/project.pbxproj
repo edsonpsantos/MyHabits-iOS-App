@@ -36,6 +36,10 @@
 		2DA496C52A8BC6EB0095008F /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA496C42A8BC6EB0095008F /* SignInView.swift */; };
 		2DA496C72A8BC78A0095008F /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA496C62A8BC78A0095008F /* SignInViewModel.swift */; };
 		2DA496C92A8BC9050095008F /* SplashViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA496C82A8BC9050095008F /* SplashViewRouter.swift */; };
+		2DC1AFC32AE51BEE000E5A9A /* HabitResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC1AFC22AE51BEE000E5A9A /* HabitResponse.swift */; };
+		2DC1AFC62AE51E76000E5A9A /* HabitRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC1AFC52AE51E76000E5A9A /* HabitRemoteDataSource.swift */; };
+		2DC1AFC82AE52028000E5A9A /* HabitInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC1AFC72AE52028000E5A9A /* HabitInteractor.swift */; };
+		2DC1AFCA2AE5284A000E5A9A /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC1AFC92AE5284A000E5A9A /* Date+Extension.swift */; };
 		2DCCA9902ABEE15C00B26229 /* RefreshRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCCA98F2ABEE15C00B26229 /* RefreshRequest.swift */; };
 		2DCCA9922ABEE5B100B26229 /* SplashRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCCA9912ABEE5B100B26229 /* SplashRemoteDataSource.swift */; };
 		2DCF522F2A968AC700CC7D12 /* EditTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCF522E2A968AC700CC7D12 /* EditTextView.swift */; };
@@ -88,6 +92,10 @@
 		2DA496C42A8BC6EB0095008F /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		2DA496C62A8BC78A0095008F /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		2DA496C82A8BC9050095008F /* SplashViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewRouter.swift; sourceTree = "<group>"; };
+		2DC1AFC22AE51BEE000E5A9A /* HabitResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitResponse.swift; sourceTree = "<group>"; };
+		2DC1AFC52AE51E76000E5A9A /* HabitRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitRemoteDataSource.swift; sourceTree = "<group>"; };
+		2DC1AFC72AE52028000E5A9A /* HabitInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitInteractor.swift; sourceTree = "<group>"; };
+		2DC1AFC92AE5284A000E5A9A /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		2DCCA98F2ABEE15C00B26229 /* RefreshRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshRequest.swift; sourceTree = "<group>"; };
 		2DCCA9912ABEE5B100B26229 /* SplashRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashRemoteDataSource.swift; sourceTree = "<group>"; };
 		2DCF522E2A968AC700CC7D12 /* EditTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTextView.swift; sourceTree = "<group>"; };
@@ -123,6 +131,7 @@
 		2D2AACC22AC4A08200CB28CC /* Habit */ = {
 			isa = PBXGroup;
 			children = (
+				2DC1AFC42AE51E52000E5A9A /* Interactor */,
 				2D2AACC52AC4A0A200CB28CC /* View */,
 				2D2AACC42AC4A09A00CB28CC /* ViewModel */,
 				2D2AACC32AC4A08D00CB28CC /* Model */,
@@ -134,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				2D2AACCA2AC4A39200CB28CC /* HabitUIState.swift */,
+				2DC1AFC22AE51BEE000E5A9A /* HabitResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -374,6 +384,15 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		2DC1AFC42AE51E52000E5A9A /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				2DC1AFC52AE51E76000E5A9A /* HabitRemoteDataSource.swift */,
+				2DC1AFC72AE52028000E5A9A /* HabitInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
 		2DCF522D2A968AB400CC7D12 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -397,6 +416,7 @@
 			isa = PBXGroup;
 			children = (
 				2DD1592D2A97E495008DED2D /* String+Extension.swift */,
+				2DC1AFC92AE5284A000E5A9A /* Date+Extension.swift */,
 			);
 			path = Lang;
 			sourceTree = "<group>";
@@ -475,7 +495,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					2D8649BB2A8A9F2500B765FF = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -521,6 +541,7 @@
 				2DD2ED4F2A8AAB89005425F5 /* SplashUIState.swift in Sources */,
 				2D74EACE2A8D588F00B05252 /* HomeViewModel.swift in Sources */,
 				2D8649C02A8A9F2500B765FF /* MyHabitsApp.swift in Sources */,
+				2DC1AFC82AE52028000E5A9A /* HabitInteractor.swift in Sources */,
 				2D554B1B2AB5D328001C6533 /* SignInRemoteDataSource.swift in Sources */,
 				2DD159302A97E897008DED2D /* LoadingButtonView.swift in Sources */,
 				2DDA3F992ABE04A50024A567 /* LocalDataSource.swift in Sources */,
@@ -541,11 +562,13 @@
 				2D97502A2A9FC94E007E07B9 /* WebService.swift in Sources */,
 				2D2FB8ED2AE3F2DD00C0D2A9 /* HabitCardViewModel.swift in Sources */,
 				2DA475CD2A8EA4A8009E5178 /* Gender.swift in Sources */,
+				2DC1AFCA2AE5284A000E5A9A /* Date+Extension.swift in Sources */,
 				2D2AACC12AC49FE400CB28CC /* HomeViewRouter.swift in Sources */,
 				2DECDC4C2A8FFC0D00C84F11 /* SignUpUIState.swift in Sources */,
 				2DE71E032ABCAFCF00703231 /* SignUpInteractor.swift in Sources */,
 				2DDA3F972ABE036A0024A567 /* UserAuth.swift in Sources */,
 				2DA496C72A8BC78A0095008F /* SignInViewModel.swift in Sources */,
+				2DC1AFC32AE51BEE000E5A9A /* HabitResponse.swift in Sources */,
 				2DDD60802ABA14F1003D67D4 /* AppError.swift in Sources */,
 				2DFE73EC2A8AA2C6002DCB46 /* SplashView.swift in Sources */,
 				2D2FB8EF2AE3F45E00C0D2A9 /* HabitCardView.swift in Sources */,
@@ -553,6 +576,7 @@
 				2DA496BF2A8BB6C50095008F /* SplashViewModel.swift in Sources */,
 				2D74EAC42A8D4D0400B05252 /* SigInUIState.swift in Sources */,
 				2D7FB9482AA10B390042CDF3 /* SignUpRequest.swift in Sources */,
+				2DC1AFC62AE51E76000E5A9A /* HabitRemoteDataSource.swift in Sources */,
 				2DCF52322A96990700CC7D12 /* CustomTextFieldStyle.swift in Sources */,
 				2DE71E052ABCB1C300703231 /* SignUpRemoteDataSource.swift in Sources */,
 				2DCF522F2A968AC700CC7D12 /* EditTextView.swift in Sources */,
@@ -605,6 +629,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -665,6 +690,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

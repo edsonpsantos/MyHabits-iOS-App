@@ -107,7 +107,7 @@ struct HabitCardView_Previews: PreviewProvider{
                                                        name: "Play Drum",
                                                        label: "Hours",
                                                        value: "2",
-                                                       state: .yellow))
+                                                       state: .red))
                     
                     
                 }

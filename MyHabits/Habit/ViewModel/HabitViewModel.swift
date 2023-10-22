@@ -6,64 +6,78 @@
 //
 
 import Foundation
+import SwiftUI
+import Combine
 
 class HabitViewModel: ObservableObject {
     
-    @Published var uiState: HabitUIState = .emptyList
-    @Published var title = "Attention"
-    @Published var headline = "Be up to date"
-    @Published var description = "Your habits are outdated"
+    @Published var uiState: HabitUIState = .loading
+    @Published var title = ""
+    @Published var headline = ""
+    @Published var description = ""
     
-    func onAppear(){
+    private var cancellableRequest:AnyCancellable?
+    private let interactor: HabitInteractor
+    
+    init(interactor: HabitInteractor){
+        self.interactor=interactor
+    }
+    
+    deinit {
+        cancellableRequest?.cancel()
+    }
+    
+    func onAppear() {
         self.uiState = .emptyList
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            
-            var rows:[HabitCardViewModel] = []
-            
-            rows.append(HabitCardViewModel(id: 1,
-                                           icon: "https://placehold.co/150x150",
-                                           date: "01/01/2023",
-                                           name: "Play Drums",
-                                           label: "Hours",
-                                           value: "1",
-                                           state: .red))
-            
-            rows.append(HabitCardViewModel(id: 2,
-                                           icon: "https://placehold.co/150x150",
-                                           date: "01/01/2023",
-                                           name: "Pstudy Swift",
-                                           label: "Hours",
-                                           value: "4",
-                                           state: .green))
-            
-            rows.append(HabitCardViewModel(id: 3,
-                                           icon: "https://placehold.co/150x150",
-                                           date: "01/01/2023",
-                                           name: "Drink water",
-                                           label: "glasses",
-                                           value: "2",
-                                           state: .yellow))
-               
-            rows.append(HabitCardViewModel(id: 4,
-                                           icon: "https://placehold.co/150x150",
-                                           date: "01/01/2023",
-                                           name: "Drink water",
-                                           label: "glasses",
-                                           value: "2",
-                                           state: .blue))
-               
-            rows.append(HabitCardViewModel(id: 5,
-                                           icon: "https://placehold.co/150x150",
-                                           date: "01/01/2023",
-                                           name: "Drink water",
-                                           label: "glasses",
-                                           value: "2",
-                                           state: .blue))
-            
-            //self.uiState = .fullList(rows)
-            self.uiState = .error("Internal Server Error")
-            
-        }
+        cancellableRequest = interactor.fetchHabits()
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { completion in
+                //Here is calling Failure or Finished event
+                switch (completion) {
+                case .failure(let appError):
+                    self.uiState = .error(appError.message)
+                    break
+                case .finished:
+                    break
+                }
+            },
+                  receiveValue: {response in
+                if response.isEmpty {
+                    self.uiState = .emptyList
+                    
+                    self.title = ""
+                    self.headline = "Be up to date"
+                    self.description = "You still don't have habits !"
+                } else {
+                    self.uiState = .fullList(
+                        response.map {
+                            
+                            let lastDate = $0.lastDate?.toDate(sourcePattern: "yyyy-MM-dd'T'HH:mm:ss", destPattern: "dd/MM/yyyy HH:mm") ?? ""
+                            
+                            var state = Color.green
+                            self.title = "Very good"
+                            self.headline = "Your habits are updated"
+                            self.description = ""
+                            
+                            if lastDate < Date().toString(destPattern: "dd/MM/yyyy"){
+                                state = .red
+                                self.title = "Attention"
+                                self.headline = "Be up to date"
+                                self.description = "Your habits are outdated"
+                            }
+                            
+                            return HabitCardViewModel(id: $0.id,
+                                                      icon: $0.iconUrl ?? "",
+                                                      date: lastDate,
+                                                      name: $0.name,
+                                                      label: $0.label,
+                                                      value: "\($0.value ?? 0)",
+                                                      state: state)
+                        }
+                    )
+                }
+            }
+        )
     }
 }

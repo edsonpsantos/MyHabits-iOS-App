@@ -90,6 +90,16 @@ enum WebService{
             }
     }
     
+    public static func call(path: LocalEndpoint,
+                                          method: Method = .get,
+                                          completion: @escaping (Result)-> Void){
+        call(path: path,
+             method: method,
+             contentType: .json,
+             data: nil,
+             completion: completion)
+    }
+    
     public static func call<T: Encodable>(path: LocalEndpoint,
                                           method: Method = .get,
                                           body: T,

@@ -1,7 +1,7 @@
 //
 //  ButtonStyle.swift
 //  MyHabits
-//
+// Style pattern using modifiers
 //  Created by EDSON SANTOS on 21/10/2023.
 //
 

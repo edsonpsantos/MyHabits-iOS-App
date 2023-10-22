@@ -10,7 +10,7 @@ import SwiftUI
 
 struct HabitView: View {
     
-    @ObservedObject var viewModel = HabitViewModel()
+    @ObservedObject var viewModel = HabitViewModel(interactor: HabitInteractor())
     
     var body: some View{
         ZStack {
@@ -36,21 +36,19 @@ struct HabitView: View {
                                 }
                             }
                             else if case HabitUIState.fullList(let rows) = viewModel.uiState{
-                                // Optmized Multi views elements (LIST ITEMS)
+                                // Multi views elements (LIST ITEMS) optmization
                                 LazyVStack{
                                     ForEach(rows, content: HabitCardView.init(viewModel:))
                                 }.padding(.horizontal,14)
                             }
-                            else if case HabitUIState.error(let message) = viewModel.uiState {
-                                
-                                Text(message).alert(isPresented: .constant(true)){
-                                    Alert(title: Text("Ups! \(message)"),
-                                          message: Text("Try again ?"),
-                                          primaryButton: .default(Text("Yes")){
-                                        viewModel.onAppear()
-                                    },
-                                          secondaryButton: .cancel())
-                                }
+                            else if case HabitUIState.error(let message) = viewModel.uiState { Text(message)
+                                    .alert(isPresented: .constant(true)) {
+                                        Alert(title: Text("Ups! \(message)"),
+                                              message: Text("Try again ?"),
+                                              primaryButton: .default(Text("Yes")) { viewModel.onAppear()
+                                        },
+                                              secondaryButton: .cancel())
+                                    }
                             }
                         }
                     }
