@@ -11,6 +11,7 @@ import Combine
 
 class HabitViewModel: ObservableObject {
     
+    @Published var opened = false
     @Published var uiState: HabitUIState = .loading
     @Published var title = ""
     @Published var headline = ""
@@ -28,6 +29,7 @@ class HabitViewModel: ObservableObject {
     }
     
     func onAppear() {
+        self.opened = true
         self.uiState = .emptyList
         
         cancellableRequest = interactor.fetchHabits()
@@ -36,7 +38,7 @@ class HabitViewModel: ObservableObject {
                 //Here is calling Failure or Finished event
                 switch (completion) {
                 case .failure(let appError):
-                    self.uiState = .error(appError.message)
+                    self.uiState =  .error(appError.message)
                     break
                 case .finished:
                     break
@@ -60,7 +62,8 @@ class HabitViewModel: ObservableObject {
                             self.headline = "Your habits are updated"
                             self.description = ""
                             
-                            if lastDate < Date().toString(destPattern: "dd/MM/yyyy"){
+                            let dateToCompare = $0.lastDate?.toDate(sourcePattern: "yyy-MM-dd'T'HH:mm:ss") ?? Date()
+                            if dateToCompare < Date(){
                                 state = .red
                                 self.title = "Attention"
                                 self.headline = "Be up to date"
