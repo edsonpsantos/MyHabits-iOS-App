@@ -17,7 +17,7 @@ struct HabitCardView: View {
         ZStack(alignment: .trailing) {
             
             NavigationLink(
-                destination: HabitDetailView(viewModel: HabitDetailViewModel(id: 1, name: "Play Drums", label: "hours")),
+                destination: viewModel.habitDetailView(),
                 ///*@START_MENU_TOKEN@*/Text("Destination")/*@END_MENU_TOKEN@*/,
                 isActive: self.$actionButton,
                 label: {

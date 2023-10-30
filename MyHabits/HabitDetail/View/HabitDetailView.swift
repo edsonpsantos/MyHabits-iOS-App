@@ -10,7 +10,7 @@ import SwiftUI
 struct HabitDetailView: View {
     
     @ObservedObject var viewModel: HabitDetailViewModel
-    
+    @Environment(\.dismiss) var dismiss
     init(viewModel: HabitDetailViewModel) {
         self.viewModel = viewModel
     }
@@ -22,7 +22,7 @@ struct HabitDetailView: View {
                     .foregroundColor(Color.orange)
                     .font(.title.bold())
                 
-                Text("Unit: \(viewModel.label)\n")
+                Text("Unit: \(viewModel.label)")
             }
             VStack{
                 TextField("Write the amount realized here", text: $viewModel.value)
@@ -47,7 +47,11 @@ struct HabitDetailView: View {
             .padding(.vertical,8)
          
             Button("Cancel"){
-                //dismiss / pop exit
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.15){
+                    withAnimation(.easeOut(duration: 2)) {
+                        self.dismiss()
+                    }
+                }
             }
             .modifier(ButtonStyle())
             .padding(.horizontal, 16)
