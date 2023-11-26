@@ -29,7 +29,7 @@ class SplashViewModel:ObservableObject{
         let currentDate = Date().timeIntervalSince1970
         
         cancellableAuth = interactor.fetchAuth()
-            .delay(for: .seconds(3), scheduler: RunLoop.main)
+            .delay(for: .seconds(2), scheduler: RunLoop.main)
             .receive(on: DispatchQueue.main)
             .sink { userAuth in
                 if userAuth == nil {

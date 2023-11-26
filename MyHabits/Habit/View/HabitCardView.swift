@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct HabitCardView: View {
     
@@ -18,7 +19,6 @@ struct HabitCardView: View {
             
             NavigationLink(
                 destination: viewModel.habitDetailView(),
-                ///*@START_MENU_TOKEN@*/Text("Destination")/*@END_MENU_TOKEN@*/,
                 isActive: self.$actionButton,
                 label: {
                     EmptyView()
@@ -99,7 +99,10 @@ struct HabitCardView_Previews: PreviewProvider{
                                                        name: "Play Drum",
                                                        label: "Hours",
                                                        value: "2",
-                                                       state: .green))
+                                                       state: .green,
+                                                       habitPublisher: PassthroughSubject<Bool, Never>()
+                                                      
+                                                      ))
                     
                     HabitCardView(viewModel:
                                     HabitCardViewModel(id: 2,
@@ -108,7 +111,8 @@ struct HabitCardView_Previews: PreviewProvider{
                                                        name: "Play Drum",
                                                        label: "Hours",
                                                        value: "2",
-                                                       state: .red))
+                                                       state: .red,
+                                                       habitPublisher: PassthroughSubject<Bool, Never>()))
                     
                     
                 }

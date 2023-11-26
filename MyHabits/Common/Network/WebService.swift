@@ -33,14 +33,14 @@ enum WebService{
         case formURL = "application/x-www-form-urlencoded"
     }
     
-    private static func completeUrl(path: LocalEndpoint) -> URLRequest? {
-        guard let url = URL(string: "\(LocalEndpoint.baseURL.rawValue)\(path.rawValue)") else{return nil}
+    private static func completeUrl(path: String) -> URLRequest? {
+        guard let url = URL(string: "\(LocalEndpoint.baseURL.rawValue)\(path)") else{return nil}
         
         return URLRequest(url: url)
     }
     
     
-    private static func call(path:LocalEndpoint,
+    private static func call(path: String,
                              method: Method,
                              contentType: ContentType,
                              data: Data?,
@@ -91,9 +91,9 @@ enum WebService{
     }
     
     public static func call(path: LocalEndpoint,
-                                          method: Method = .get,
-                                          completion: @escaping (Result)-> Void){
-        call(path: path,
+                            method: Method = .get,
+                            completion: @escaping (Result)-> Void){
+        call(path: path.rawValue,
              method: method,
              contentType: .json,
              data: nil,
@@ -107,6 +107,20 @@ enum WebService{
         
         guard let jsonData = try? JSONEncoder().encode(body) else { return }
         
+        call(path: path.rawValue,
+             method: method,
+             contentType: .json,
+             data: jsonData,
+             completion: completion)
+    }
+    
+    public static func call<T: Encodable>(path: String,
+                                          method: Method = .get,
+                                          body: T,
+                                          completion: @escaping (Result)-> Void){
+        
+        guard let jsonData = try? JSONEncoder().encode(body) else { return }
+        
         call(path: path,
              method: method,
              contentType: .json,
@@ -114,16 +128,18 @@ enum WebService{
              completion: completion)
     }
     
+    
     public static func call(path: LocalEndpoint,
                             method: Method = .post,
                             params: [URLQueryItem],
                             completion: @escaping (Result)-> Void){
         
-        guard let urlRequest = completeUrl(path: path) else {return}
+        guard let urlRequest = completeUrl(path: path.rawValue) else {return}
         guard let absoluteURL = urlRequest.url?.absoluteString else {return}
         
         var components = URLComponents(string: absoluteURL)
         components?.queryItems = params
-        call(path: path,method: method, contentType: .formURL, data: components?.query?.data(using: .utf8), completion: completion)
+        call(path: path.rawValue, method: method, contentType: .formURL, data: components?.query?.data(using: .utf8), completion: completion)
     }
 }
+ 

@@ -11,26 +11,35 @@ import Combine
 
 class HabitViewModel: ObservableObject {
     
-    @Published var opened = false
     @Published var uiState: HabitUIState = .loading
+    
     @Published var title = ""
     @Published var headline = ""
     @Published var description = ""
     
+    @Published var opened = false
+    
     private var cancellableRequest:AnyCancellable?
+    private var cancellableNotify: AnyCancellable?
+    
     private let interactor: HabitInteractor
+    private let habitPublisher = PassthroughSubject<Bool,Never>()
     
     init(interactor: HabitInteractor){
         self.interactor=interactor
+        cancellableNotify=habitPublisher.sink(receiveValue: { saved in
+            self.onAppear()
+        })
     }
     
     deinit {
         cancellableRequest?.cancel()
+        cancellableNotify?.cancel()
     }
     
     func onAppear() {
         self.opened = true
-        self.uiState = .emptyList
+        self.uiState = .loading
         
         cancellableRequest = interactor.fetchHabits()
             .receive(on: DispatchQueue.main)
@@ -43,8 +52,7 @@ class HabitViewModel: ObservableObject {
                 case .finished:
                     break
                 }
-            },
-                  receiveValue: {response in
+            }, receiveValue: {response in
                 if response.isEmpty {
                     self.uiState = .emptyList
                     
@@ -55,14 +63,16 @@ class HabitViewModel: ObservableObject {
                     self.uiState = .fullList(
                         response.map {
                             
-                            let lastDate = $0.lastDate?.toDate(sourcePattern: "yyyy-MM-dd'T'HH:mm:ss", destPattern: "dd/MM/yyyy HH:mm") ?? ""
+                            let lastDate = $0.lastDate?.toDate(sourcePattern: "yyyy-MM-dd'T'HH:mm:ss",
+                                                               destPattern: "dd/MM/yyyy HH:mm") ?? ""
                             
                             var state = Color.green
                             self.title = "Very good"
                             self.headline = "Your habits are updated"
                             self.description = ""
                             
-                            let dateToCompare = $0.lastDate?.toDate(sourcePattern: "yyy-MM-dd'T'HH:mm:ss") ?? Date()
+                            let dateToCompare = $0.lastDate?.toDate(sourcePattern: "yyyy-MM-dd'T'HH:mm:ss") ?? Date()
+                            
                             if dateToCompare < Date(){
                                 state = .red
                                 self.title = "Attention"
@@ -76,7 +86,8 @@ class HabitViewModel: ObservableObject {
                                                       name: $0.name,
                                                       label: $0.label,
                                                       value: "\($0.value ?? 0)",
-                                                      state: state)
+                                                      state: state,
+                                                      habitPublisher: self.habitPublisher)
                         }
                     )
                 }

@@ -10,7 +10,8 @@ import SwiftUI
 struct HabitDetailView: View {
     
     @ObservedObject var viewModel: HabitDetailViewModel
-    @Environment(\.dismiss) var dismiss
+    @Environment(\.presentationMode) var presentationMode:Binding<PresentationMode>
+    
     init(viewModel: HabitDetailViewModel) {
         self.viewModel = viewModel
     }
@@ -41,16 +42,15 @@ struct HabitDetailView: View {
             
             LoadingButtonView(
                 action: {
-                
-            }, text: "Save",disabled: self.viewModel.value.isEmpty, showProgressBar: self.viewModel.uiState == .loading )
+                    viewModel.save()
+            }, text: "Save",disabled: viewModel.value.isEmpty, showProgressBar: viewModel.uiState == .loading )
             .padding(.horizontal,16)
             .padding(.vertical,8)
          
             Button("Cancel"){
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.15){
                     withAnimation(.easeOut(duration: 2)) {
-                        self.dismiss()
-                    }
+                        self.presentationMode.wrappedValue.dismiss()                   }
                 }
             }
             .modifier(ButtonStyle())
@@ -59,13 +59,14 @@ struct HabitDetailView: View {
         }
         .padding(.horizontal, 8)
         .padding(.top, 32)
+        
     }
 }
 
 struct HabitDetailView_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) { colorValue in
-            HabitDetailView(viewModel: HabitDetailViewModel(id: 1, name: "Play Drums", label: "hours"))
+            HabitDetailView(viewModel: HabitDetailViewModel(id: 1, name: "Play Drums", label: "hours", interactor: HabitDetailInteractor()))
                 .previewDevice("iPhone 11")
                 .preferredColorScheme(colorValue)
             

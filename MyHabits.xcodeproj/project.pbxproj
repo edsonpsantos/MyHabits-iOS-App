@@ -33,6 +33,9 @@
 		2D8649C72A8A9F2600B765FF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D8649C62A8A9F2600B765FF /* Preview Assets.xcassets */; };
 		2D97502A2A9FC94E007E07B9 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9750292A9FC94E007E07B9 /* WebService.swift */; };
 		2DA42AB02AF031EA002227D0 /* HabitCardViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA42AAF2AF031EA002227D0 /* HabitCardViewRouter.swift */; };
+		2DA42AB22AF03A6D002227D0 /* HabitValueRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA42AB12AF03A6D002227D0 /* HabitValueRequest.swift */; };
+		2DA42AB52AF03AB9002227D0 /* HabitDetailRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA42AB42AF03AB9002227D0 /* HabitDetailRemoteDataSource.swift */; };
+		2DA42AB72AF03CB0002227D0 /* HabitDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA42AB62AF03CB0002227D0 /* HabitDetailInteractor.swift */; };
 		2DA475C62A8E9AD1009E5178 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA475C52A8E9AD1009E5178 /* SignUpViewModel.swift */; };
 		2DA475C92A8E9B02009E5178 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA475C82A8E9B02009E5178 /* SignUpView.swift */; };
 		2DA475CD2A8EA4A8009E5178 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA475CC2A8EA4A8009E5178 /* Gender.swift */; };
@@ -93,6 +96,9 @@
 		2D8649C62A8A9F2600B765FF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2D9750292A9FC94E007E07B9 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		2DA42AAF2AF031EA002227D0 /* HabitCardViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCardViewRouter.swift; sourceTree = "<group>"; };
+		2DA42AB12AF03A6D002227D0 /* HabitValueRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitValueRequest.swift; sourceTree = "<group>"; };
+		2DA42AB42AF03AB9002227D0 /* HabitDetailRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDetailRemoteDataSource.swift; sourceTree = "<group>"; };
+		2DA42AB62AF03CB0002227D0 /* HabitDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDetailInteractor.swift; sourceTree = "<group>"; };
 		2DA475C52A8E9AD1009E5178 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		2DA475C82A8E9B02009E5178 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		2DA475CC2A8EA4A8009E5178 /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
@@ -229,6 +235,7 @@
 		2D82690D2AE99A8500745979 /* HabitDetail */ = {
 			isa = PBXGroup;
 			children = (
+				2DA42AB32AF03A9D002227D0 /* Interactor */,
 				2D82690F2AE99A9700745979 /* View */,
 				2D8269102AE99AA300745979 /* ViewModel */,
 				2D82690E2AE99A9000745979 /* Model */,
@@ -256,6 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				2D8269132AE99B1100745979 /* HabitDetailViewModel.swift */,
+				2DA42AB12AF03A6D002227D0 /* HabitValueRequest.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -317,6 +325,15 @@
 				2D718D272AA668B400D2400D /* LocalEndpoint.swift */,
 			);
 			path = Environment;
+			sourceTree = "<group>";
+		};
+		2DA42AB32AF03A9D002227D0 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				2DA42AB42AF03AB9002227D0 /* HabitDetailRemoteDataSource.swift */,
+				2DA42AB62AF03CB0002227D0 /* HabitDetailInteractor.swift */,
+			);
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 		2DA475C22A8E9AAC009E5178 /* SignUp */ = {
@@ -582,6 +599,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D718D262AA6658700D2400D /* Endpoint.swift in Sources */,
+				2DA42AB22AF03A6D002227D0 /* HabitValueRequest.swift in Sources */,
 				2DD2ED4F2A8AAB89005425F5 /* SplashUIState.swift in Sources */,
 				2D74EACE2A8D588F00B05252 /* HomeViewModel.swift in Sources */,
 				2D8649C02A8A9F2500B765FF /* MyHabitsApp.swift in Sources */,
@@ -596,6 +614,7 @@
 				2D2FB8EB2AE3F05100C0D2A9 /* ButtonStyle.swift in Sources */,
 				2D2AACC92AC4A0E000CB28CC /* HabitViewModel.swift in Sources */,
 				2D2AACC72AC4A0B600CB28CC /* HabitView.swift in Sources */,
+				2DA42AB72AF03CB0002227D0 /* HabitDetailInteractor.swift in Sources */,
 				2DD1592E2A97E495008DED2D /* String+Extension.swift in Sources */,
 				2DF2EC162AB5C6080034340E /* SignInErrorResponse.swift in Sources */,
 				2DECDC4E2A8FFD2000C84F11 /* SignUpViewRouter.swift in Sources */,
@@ -614,6 +633,7 @@
 				2DE71E032ABCAFCF00703231 /* SignUpInteractor.swift in Sources */,
 				2D8269122AE99AC300745979 /* HabitDetailUIState.swift in Sources */,
 				2DDA3F972ABE036A0024A567 /* UserAuth.swift in Sources */,
+				2DA42AB52AF03AB9002227D0 /* HabitDetailRemoteDataSource.swift in Sources */,
 				2DA496C72A8BC78A0095008F /* SignInViewModel.swift in Sources */,
 				2DC1AFC32AE51BEE000E5A9A /* HabitResponse.swift in Sources */,
 				2DDD60802ABA14F1003D67D4 /* AppError.swift in Sources */,
@@ -692,7 +712,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -747,7 +767,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -772,7 +792,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -801,7 +821,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
