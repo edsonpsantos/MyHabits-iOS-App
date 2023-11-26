@@ -28,8 +28,11 @@ struct HabitCardView: View {
                 self.actionButton = true
             }, label: {
                 HStack {
-                    Image(systemName:"square.and.pencil")
-                        .padding(.horizontal, 8)
+                    ImageView(url: viewModel.icon)
+                        .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
+                        .frame(width: 32, height: 32)
+                        .clipped()
+                        //.padding(.horizontal, 8)
                     
                     Spacer()
                     
