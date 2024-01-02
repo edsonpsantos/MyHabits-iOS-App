@@ -100,6 +100,7 @@ enum WebService{
              completion: completion)
     }
     
+    
     public static func call<T: Encodable>(path: LocalEndpoint,
                                           method: Method = .get,
                                           body: T,
@@ -113,7 +114,6 @@ enum WebService{
              data: jsonData,
              completion: completion)
     }
-    
     public static func call<T: Encodable>(path: String,
                                           method: Method = .get,
                                           body: T,
@@ -128,7 +128,7 @@ enum WebService{
              completion: completion)
     }
     
-    
+        
     public static func call(path: LocalEndpoint,
                             method: Method = .post,
                             params: [URLQueryItem],

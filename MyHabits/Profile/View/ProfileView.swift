@@ -9,13 +9,16 @@ import SwiftUI
 
 struct ProfileView: View {
     
-    @State var fullName = ""
-    @State var email = "teste@gmail.com"
+    @ObservedObject var viewModel: ProfileViewModel
+    
+  @State var email = "teste9999@teste.com"
     @State var fiscalDocument = "123.456.789-99"
     @State var phoneNumber = "996 654 321"
     @State var birthDay = "01/01/1990"
     
-    @State var selectedGender: Gender? = .male
+    @State var selectedGender: Gender? = .none
+    
+        
     
     var body: some View {
         NavigationView{
@@ -23,11 +26,14 @@ struct ProfileView: View {
                 Form{
                     Section(header: Text("Registration Data")) {
                         HStack{
-                            Text("Name: ")
+                            Text("Full Name: ")
                             Spacer()
-                            TextField("Inform your name", text: $fullName)
+                            TextField("Your name here", text: $viewModel.fullNameValidation.value )
                                 .keyboardType(.alphabet)
                                 .multilineTextAlignment(.trailing)
+                        }
+                        if(viewModel.fullNameValidation.failure){
+                            Text("FullName must be longer than 3 chars").foregroundColor(.red)
                         }
                         
                         HStack{
@@ -51,16 +57,23 @@ struct ProfileView: View {
                         HStack{
                             Text("Mobile: ")
                             Spacer()
-                            TextField("Inform your phone number", text: $phoneNumber)
+                            TextField("Your phone number here", text: $viewModel.mobileValidation.value)
                                 .keyboardType(.numberPad)
                                 .multilineTextAlignment(.trailing)
+                        }
+                        if(viewModel.mobileValidation.failure){
+                            Text("Invalid mobile number format")
+                                .foregroundColor(.red)
                         }
                         
                         HStack{
                             Text("Birth Day: ")
                             Spacer()
-                            TextField("Inform your BirthDay", text: $birthDay)
+                            TextField("Inform your BirthDay here", text: $viewModel.birthdayValidation.value)
                                 .multilineTextAlignment(.trailing)
+                        }
+                        if(viewModel.birthdayValidation.failure){
+                            Text("Invalid date format").foregroundColor(.red)
                         }
                         
                         NavigationLink(
@@ -70,7 +83,7 @@ struct ProfileView: View {
                                 genders: Gender.allCases),
                             label: {
                                 HStack{
-                                    Text("Gender")
+                                    Text("Gender:")
                                     Spacer()
                                     Text(selectedGender?.rawValue ?? "")
                                 }
@@ -85,5 +98,5 @@ struct ProfileView: View {
 }
 
 #Preview {
-    ProfileView()
+    ProfileView(viewModel: ProfileViewModel())
 }

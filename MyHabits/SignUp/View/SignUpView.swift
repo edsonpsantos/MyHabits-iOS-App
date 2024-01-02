@@ -57,7 +57,7 @@ extension SignUpView{
         EditTextView(text: $viewModel.fullName,
                      placeholder: "Your Full Name *",
                      keyboard: .alphabet,
-                     error: "Invalid Full Name",
+                     error: "Full name must be longer than 3 characters",
                      failure: viewModel.fullName.count < 3)
     }
 }
