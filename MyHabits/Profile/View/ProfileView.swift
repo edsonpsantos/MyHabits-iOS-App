@@ -98,20 +98,38 @@ struct ProfileView: View {
                         }
                     }
                     .navigationBarTitle(Text("Profile Edit"), displayMode: .automatic)
-                    .navigationBarItems(trailing: Button(action: {}, label: {
-                        Image(systemName: "checkmark")
-                            .foregroundColor(.orange)
+                    .navigationBarItems(trailing: Button(action: {
+                        viewModel.updateUser()
+                    }, label: {
+                        if case ProfileUIState.updateLoading = viewModel.uiState{
+                            ProgressView()
+                        } else {
+                            Image(systemName: "checkmark")
+                                .foregroundColor(.orange)
+                        }
                     })
+                        .alert(isPresented: .constant(viewModel.uiState == .updateSuccess), content: {
+                            Alert(title: Text("Habit"), message: Text("Profile info updated successfuly"))
+                        })
                         .opacity(disableDone ? 0: 1)
                     )
                     
                 }
             }
+            if case ProfileUIState.updateError(let value) = viewModel.uiState {
+                Text("")
+                    .alert(isPresented: .constant(true)){
+                        Alert(title: Text("Habit"), message: Text(value), dismissButton: .default(Text("OK")){
+                            viewModel.uiState = .none
+                        })
+                    }
+            }
+            
             if case ProfileUIState.fetchError(let value) = viewModel.uiState {
                 Text("")
                     .alert(isPresented: .constant(true)){
                         Alert(title: Text("Habit"), message: Text(value), dismissButton: .default(Text("OK")){
-                            
+                                viewModel.uiState = .none
                         })
                     }
             }
