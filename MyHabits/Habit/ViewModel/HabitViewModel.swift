@@ -12,20 +12,21 @@ import Combine
 class HabitViewModel: ObservableObject {
     
     @Published var uiState: HabitUIState = .loading
-    
     @Published var title = ""
     @Published var headline = ""
     @Published var description = ""
-    
     @Published var opened = false
     
     private var cancellableRequest:AnyCancellable?
     private var cancellableNotify: AnyCancellable?
-    
     private let interactor: HabitInteractor
+    
+    let isCharts: Bool
+    
     private let habitPublisher = PassthroughSubject<Bool,Never>()
     
-    init(interactor: HabitInteractor){
+    init(isCharts: Bool, interactor: HabitInteractor){
+        self.isCharts = isCharts
         self.interactor=interactor
         cancellableNotify=habitPublisher.sink(receiveValue: { saved in
             self.onAppear()

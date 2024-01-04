@@ -10,7 +10,7 @@ import SwiftUI
 
 struct HabitView: View {
     
-    @ObservedObject var viewModel = HabitViewModel(interactor: HabitInteractor())
+    @ObservedObject var viewModel = HabitViewModel(isCharts: false, interactor: HabitInteractor())
     
     var body: some View{
         ZStack {
@@ -21,9 +21,10 @@ struct HabitView: View {
                 NavigationView {
                     ScrollView(showsIndicators: false) {
                         VStack(spacing: 12){
-                            topContainer
-                            
-                            addButton
+                            if !viewModel.isCharts{
+                                topContainer
+                                addButton
+                            }
                             
                             if case HabitUIState.emptyList = viewModel.uiState{
                                 Spacer(minLength: 60)
@@ -38,7 +39,9 @@ struct HabitView: View {
                             else if case HabitUIState.fullList(let rows) = viewModel.uiState{
                                 // Multi views elements (LIST ITEMS) optmization
                                 LazyVStack{
-                                    ForEach(rows, content: HabitCardView.init(viewModel:))
+                                    ForEach(rows){ row in
+                                        HabitCardView.init(isChart: viewModel.isCharts, viewModel: row)
+                                    }
                                 }.padding(.horizontal,14)
                             }
                             else if case HabitUIState.error(let message) = viewModel.uiState { Text(message)
@@ -114,7 +117,7 @@ extension HabitView{
 
 struct HabitView_Previews: PreviewProvider{
     static var previews: some View{
-        ForEach(ColorScheme.allCases, id: \.self) { HomeViewRouter.makeHabitView(viewModel: HabitViewModel(interactor: HabitInteractor()))
+        ForEach(ColorScheme.allCases, id: \.self) { HomeViewRouter.makeHabitView(viewModel: HabitViewModel(isCharts: false, interactor: HabitInteractor()))
                 .previewDevice("iPhone 15Pro")
                 .preferredColorScheme($0)
         }

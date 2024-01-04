@@ -12,17 +12,27 @@ struct HabitCardView: View {
     
     @State private var actionButton = false
     
+    let isChart: Bool
     let viewModel: HabitCardViewModel
     
     var body: some View {
         ZStack(alignment: .trailing) {
             
-            NavigationLink(
-                destination: viewModel.habitDetailView(),
-                isActive: self.$actionButton,
-                label: {
-                    EmptyView()
-                })
+            if isChart {
+                NavigationLink(
+                    destination: viewModel.chartView(),
+                    isActive: self.$actionButton,
+                    label: {
+                        EmptyView()
+                    })
+            } else {
+                NavigationLink(
+                    destination: viewModel.habitDetailView(),
+                    isActive: self.$actionButton,
+                    label: {
+                        EmptyView()
+                    })
+            }
             
             Button(action: {
                 self.actionButton = true
@@ -76,9 +86,11 @@ struct HabitCardView: View {
                 .padding()
                 .cornerRadius(4.0)
             })
-            Rectangle()
-                .frame(width: 8)
-                .foregroundColor(viewModel.state)
+            if !isChart {
+                Rectangle()
+                    .frame(width: 8)
+                    .foregroundColor(viewModel.state)
+            }
         }
         .background(
             RoundedRectangle(cornerRadius: 4)
@@ -95,7 +107,7 @@ struct HabitCardView_Previews: PreviewProvider{
         ForEach(ColorScheme.allCases, id: \.self) {
             NavigationView {
                 List{
-                    HabitCardView(viewModel:
+                    HabitCardView(isChart: true, viewModel:
                                     HabitCardViewModel(id: 1,
                                                        icon: "https://placehold.co/150x150",
                                                        date: "01/01/2023",
@@ -107,7 +119,7 @@ struct HabitCardView_Previews: PreviewProvider{
                                                       
                                                       ))
                     
-                    HabitCardView(viewModel:
+                    HabitCardView(isChart: false, viewModel:
                                     HabitCardViewModel(id: 2,
                                                        icon: "https://placehold.co/150x150",
                                                        date: "01/01/2023",
