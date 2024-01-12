@@ -16,6 +16,10 @@
 		2D2FB8EB2AE3F05100C0D2A9 /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2FB8EA2AE3F05100C0D2A9 /* ButtonStyle.swift */; };
 		2D2FB8ED2AE3F2DD00C0D2A9 /* HabitCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2FB8EC2AE3F2DD00C0D2A9 /* HabitCardViewModel.swift */; };
 		2D2FB8EF2AE3F45E00C0D2A9 /* HabitCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2FB8EE2AE3F45E00C0D2A9 /* HabitCardView.swift */; };
+		2D41727D2B51882D007B0E78 /* HabitValueResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D41727C2B51882D007B0E78 /* HabitValueResponse.swift */; };
+		2D4172822B518929007B0E78 /* ChartRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4172812B518929007B0E78 /* ChartRemoteDataSource.swift */; };
+		2D4172842B518CA2007B0E78 /* ChartInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4172832B518CA2007B0E78 /* ChartInteractor.swift */; };
+		2D4172862B518DAB007B0E78 /* ChartUiState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4172852B518DAB007B0E78 /* ChartUiState.swift */; };
 		2D5477BB2B4575FC00296BF0 /* ProfileResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5477BA2B4575FC00296BF0 /* ProfileResponse.swift */; };
 		2D5477BE2B45766500296BF0 /* ProfileRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5477BD2B45766500296BF0 /* ProfileRemoteDataSource.swift */; };
 		2D5477C02B4577C400296BF0 /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5477BF2B4577C400296BF0 /* ProfileInteractor.swift */; };
@@ -92,6 +96,10 @@
 		2D2FB8EA2AE3F05100C0D2A9 /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
 		2D2FB8EC2AE3F2DD00C0D2A9 /* HabitCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCardViewModel.swift; sourceTree = "<group>"; };
 		2D2FB8EE2AE3F45E00C0D2A9 /* HabitCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCardView.swift; sourceTree = "<group>"; };
+		2D41727C2B51882D007B0E78 /* HabitValueResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitValueResponse.swift; sourceTree = "<group>"; };
+		2D4172812B518929007B0E78 /* ChartRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartRemoteDataSource.swift; sourceTree = "<group>"; };
+		2D4172832B518CA2007B0E78 /* ChartInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartInteractor.swift; sourceTree = "<group>"; };
+		2D4172852B518DAB007B0E78 /* ChartUiState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartUiState.swift; sourceTree = "<group>"; };
 		2D5477BA2B4575FC00296BF0 /* ProfileResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileResponse.swift; sourceTree = "<group>"; };
 		2D5477BD2B45766500296BF0 /* ProfileRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRemoteDataSource.swift; sourceTree = "<group>"; };
 		2D5477BF2B4577C400296BF0 /* ProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInteractor.swift; sourceTree = "<group>"; };
@@ -216,6 +224,15 @@
 				2D2FB8EA2AE3F05100C0D2A9 /* ButtonStyle.swift */,
 			);
 			path = Modifier;
+			sourceTree = "<group>";
+		};
+		2D4172802B518916007B0E78 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				2D4172812B518929007B0E78 /* ChartRemoteDataSource.swift */,
+				2D4172832B518CA2007B0E78 /* ChartInteractor.swift */,
+			);
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 		2D5477BC2B45765300296BF0 /* Interactor */ = {
@@ -575,6 +592,7 @@
 		2DE3F7092B46F76900D56388 /* Charts */ = {
 			isa = PBXGroup;
 			children = (
+				2D4172802B518916007B0E78 /* Interactor */,
 				2DE3F70C2B46F78200D56388 /* View */,
 				2DE3F70B2B46F77900D56388 /* ViewModel */,
 				2DE3F70A2B46F77200D56388 /* Model */,
@@ -585,6 +603,8 @@
 		2DE3F70A2B46F77200D56388 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2D41727C2B51882D007B0E78 /* HabitValueResponse.swift */,
+				2D4172852B518DAB007B0E78 /* ChartUiState.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -793,12 +813,14 @@
 				2D7D65C82B13911200592081 /* ProfileView.swift in Sources */,
 				2D13E8C22B4C56BA00354717 /* ChartViewModel.swift in Sources */,
 				2D13E8C42B4C580600354717 /* BoxChartView.swift in Sources */,
+				2D41727D2B51882D007B0E78 /* HabitValueResponse.swift in Sources */,
 				2D2AACC92AC4A0E000CB28CC /* HabitViewModel.swift in Sources */,
 				2D2AACC72AC4A0B600CB28CC /* HabitView.swift in Sources */,
 				2DA42AB72AF03CB0002227D0 /* HabitDetailInteractor.swift in Sources */,
 				2DD1592E2A97E495008DED2D /* String+Extension.swift in Sources */,
 				2D7D65CC2B139B0900592081 /* GenderSelectorView.swift in Sources */,
 				2DF2EC162AB5C6080034340E /* SignInErrorResponse.swift in Sources */,
+				2D4172822B518929007B0E78 /* ChartRemoteDataSource.swift in Sources */,
 				2DECDC4E2A8FFD2000C84F11 /* SignUpViewRouter.swift in Sources */,
 				2DA496C92A8BC9050095008F /* SplashViewRouter.swift in Sources */,
 				2DD9D6382AA915E0002FE8E3 /* SignInResponse.swift in Sources */,
@@ -809,6 +831,7 @@
 				2D718D282AA668B400D2400D /* LocalEndpoint.swift in Sources */,
 				2D5477C02B4577C400296BF0 /* ProfileInteractor.swift in Sources */,
 				2D97502A2A9FC94E007E07B9 /* WebService.swift in Sources */,
+				2D4172842B518CA2007B0E78 /* ChartInteractor.swift in Sources */,
 				2D2FB8ED2AE3F2DD00C0D2A9 /* HabitCardViewModel.swift in Sources */,
 				2DA475CD2A8EA4A8009E5178 /* Gender.swift in Sources */,
 				2DC1AFCA2AE5284A000E5A9A /* Date+Extension.swift in Sources */,
@@ -842,6 +865,7 @@
 				2DCCA9902ABEE15C00B26229 /* RefreshRequest.swift in Sources */,
 				2DD9D6362AA91394002FE8E3 /* SignInRequest.swift in Sources */,
 				2DA496C52A8BC6EB0095008F /* SignInView.swift in Sources */,
+				2D4172862B518DAB007B0E78 /* ChartUiState.swift in Sources */,
 				2D8269162AE99BAE00745979 /* HabitDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

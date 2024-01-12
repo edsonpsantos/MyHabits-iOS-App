@@ -8,34 +8,41 @@
 import Foundation
 import SwiftUI
 import Charts
+import Combine
 
 class ChartViewModel: ObservableObject{
     
+    @Published var uiSate = ChartUiState.loading
+    @Published var entries:[ChartDataEntry] = []
+    @Published var dates: [String] = []
     
-    @Published var entries:[ChartDataEntry] = [
-        ChartDataEntry(x:1.0, y: 2.0),
-        ChartDataEntry(x:2.0, y: 6.0),
-        ChartDataEntry(x:3.0, y: 28.0),
-        ChartDataEntry(x:4.0, y: 12.0),
-        ChartDataEntry(x:5.0, y: 32.0),
-        ChartDataEntry(x:6.0, y: 42.0),
-        ChartDataEntry(x:7.0, y: 15.0),
-        ChartDataEntry(x:8.0, y: 6.0),
-        ChartDataEntry(x:9.0, y: 9.0),
-        ChartDataEntry(x:10.0, y: 11.0)
-    ]
+    private var cancellabe: AnyCancellable?
     
-    @Published var dates = [
-    "2024/01/01",
-    "2024/02/01",
-    "2024/03/01",
-    "2024/04/01",
-    "2024/05/01",
-    "2024/06/01",
-    "2024/07/01",
-    "2024/08/01",
-    "2024/09/01",
-    "2024/10/01",
-    ]
+    private let habitId: Int
+    private let interactor: ChartInteractor
+    
+    init(habitId: Int, interactor: ChartInteractor) {
+        self.habitId = habitId
+        self.interactor = interactor
+    }
+    
+    deinit {
+        cancellabe?.cancel()
+    }
+    
+    func onAppear(){
+        cancellabe = interactor.fetchHabitValues(habitId: habitId)
+            .receive(on: DispatchQueue.main)
+            .sink(receiveCompletion: { completion in
+                switch(completion){
+                case .failure(let appError):
+                    self.uiSate = .error(appError.message)
+                case .finished:
+                    break
+                }
+            }, receiveValue: {response in
+                    print(response)
+            })
+    }
     
 }
