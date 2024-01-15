@@ -20,6 +20,10 @@
 		2D4172822B518929007B0E78 /* ChartRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4172812B518929007B0E78 /* ChartRemoteDataSource.swift */; };
 		2D4172842B518CA2007B0E78 /* ChartInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4172832B518CA2007B0E78 /* ChartInteractor.swift */; };
 		2D4172862B518DAB007B0E78 /* ChartUiState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4172852B518DAB007B0E78 /* ChartUiState.swift */; };
+		2D42B4752B557BD000A38C1C /* HabitCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D42B4742B557BD000A38C1C /* HabitCreateView.swift */; };
+		2D42B4772B557C6500A38C1C /* HabitCreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D42B4762B557C6500A38C1C /* HabitCreateViewModel.swift */; };
+		2D42B4792B557C8B00A38C1C /* HabitCreateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D42B4782B557C8B00A38C1C /* HabitCreateModel.swift */; };
+		2D42B47B2B5582D400A38C1C /* HabitViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D42B47A2B5582D400A38C1C /* HabitViewRouter.swift */; };
 		2D5477BB2B4575FC00296BF0 /* ProfileResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5477BA2B4575FC00296BF0 /* ProfileResponse.swift */; };
 		2D5477BE2B45766500296BF0 /* ProfileRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5477BD2B45766500296BF0 /* ProfileRemoteDataSource.swift */; };
 		2D5477C02B4577C400296BF0 /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5477BF2B4577C400296BF0 /* ProfileInteractor.swift */; };
@@ -100,6 +104,10 @@
 		2D4172812B518929007B0E78 /* ChartRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartRemoteDataSource.swift; sourceTree = "<group>"; };
 		2D4172832B518CA2007B0E78 /* ChartInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartInteractor.swift; sourceTree = "<group>"; };
 		2D4172852B518DAB007B0E78 /* ChartUiState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartUiState.swift; sourceTree = "<group>"; };
+		2D42B4742B557BD000A38C1C /* HabitCreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCreateView.swift; sourceTree = "<group>"; };
+		2D42B4762B557C6500A38C1C /* HabitCreateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCreateViewModel.swift; sourceTree = "<group>"; };
+		2D42B4782B557C8B00A38C1C /* HabitCreateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCreateModel.swift; sourceTree = "<group>"; };
+		2D42B47A2B5582D400A38C1C /* HabitViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitViewRouter.swift; sourceTree = "<group>"; };
 		2D5477BA2B4575FC00296BF0 /* ProfileResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileResponse.swift; sourceTree = "<group>"; };
 		2D5477BD2B45766500296BF0 /* ProfileRemoteDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRemoteDataSource.swift; sourceTree = "<group>"; };
 		2D5477BF2B4577C400296BF0 /* ProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInteractor.swift; sourceTree = "<group>"; };
@@ -205,6 +213,7 @@
 				2D2AACC82AC4A0E000CB28CC /* HabitViewModel.swift */,
 				2D2FB8EC2AE3F2DD00C0D2A9 /* HabitCardViewModel.swift */,
 				2DA42AAF2AF031EA002227D0 /* HabitCardViewRouter.swift */,
+				2D42B47A2B5582D400A38C1C /* HabitViewRouter.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -233,6 +242,40 @@
 				2D4172832B518CA2007B0E78 /* ChartInteractor.swift */,
 			);
 			path = Interactor;
+			sourceTree = "<group>";
+		};
+		2D42B46E2B557B9A00A38C1C /* HabitCreate */ = {
+			isa = PBXGroup;
+			children = (
+				2D42B4712B557BAD00A38C1C /* View */,
+				2D42B4702B557BA600A38C1C /* ViewModel */,
+				2D42B46F2B557BA200A38C1C /* Model */,
+			);
+			path = HabitCreate;
+			sourceTree = "<group>";
+		};
+		2D42B46F2B557BA200A38C1C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2D42B4782B557C8B00A38C1C /* HabitCreateModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2D42B4702B557BA600A38C1C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2D42B4762B557C6500A38C1C /* HabitCreateViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2D42B4712B557BAD00A38C1C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2D42B4742B557BD000A38C1C /* HabitCreateView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		2D5477BC2B45765300296BF0 /* Interactor */ = {
@@ -382,6 +425,7 @@
 		2D8649BE2A8A9F2500B765FF /* MyHabits */ = {
 			isa = PBXGroup;
 			children = (
+				2D42B46E2B557B9A00A38C1C /* HabitCreate */,
 				2DE3F7092B46F76900D56388 /* Charts */,
 				2D7D65C32B1390C400592081 /* Profile */,
 				2D82690D2AE99A8500745979 /* HabitDetail */,
@@ -797,6 +841,7 @@
 				2D718D262AA6658700D2400D /* Endpoint.swift in Sources */,
 				2DA42AB22AF03A6D002227D0 /* HabitValueRequest.swift in Sources */,
 				2DD2ED4F2A8AAB89005425F5 /* SplashUIState.swift in Sources */,
+				2D42B4752B557BD000A38C1C /* HabitCreateView.swift in Sources */,
 				2D74EACE2A8D588F00B05252 /* HomeViewModel.swift in Sources */,
 				2D8649C02A8A9F2500B765FF /* MyHabitsApp.swift in Sources */,
 				2D5477BE2B45766500296BF0 /* ProfileRemoteDataSource.swift in Sources */,
@@ -831,6 +876,7 @@
 				2D718D282AA668B400D2400D /* LocalEndpoint.swift in Sources */,
 				2D5477C02B4577C400296BF0 /* ProfileInteractor.swift in Sources */,
 				2D97502A2A9FC94E007E07B9 /* WebService.swift in Sources */,
+				2D42B4792B557C8B00A38C1C /* HabitCreateModel.swift in Sources */,
 				2D4172842B518CA2007B0E78 /* ChartInteractor.swift in Sources */,
 				2D2FB8ED2AE3F2DD00C0D2A9 /* HabitCardViewModel.swift in Sources */,
 				2DA475CD2A8EA4A8009E5178 /* Gender.swift in Sources */,
@@ -844,9 +890,11 @@
 				2DA496C72A8BC78A0095008F /* SignInViewModel.swift in Sources */,
 				2DC1AFC32AE51BEE000E5A9A /* HabitResponse.swift in Sources */,
 				2DDD60802ABA14F1003D67D4 /* AppError.swift in Sources */,
+				2D42B4772B557C6500A38C1C /* HabitCreateViewModel.swift in Sources */,
 				2DFE73EC2A8AA2C6002DCB46 /* SplashView.swift in Sources */,
 				2D2FB8EF2AE3F45E00C0D2A9 /* HabitCardView.swift in Sources */,
 				2DA475C92A8E9B02009E5178 /* SignUpView.swift in Sources */,
+				2D42B47B2B5582D400A38C1C /* HabitViewRouter.swift in Sources */,
 				2D5477C22B45784B00296BF0 /* ProfileUIState.swift in Sources */,
 				2DA496BF2A8BB6C50095008F /* SplashViewModel.swift in Sources */,
 				2DE3F70E2B46F7CD00D56388 /* ChartView.swift in Sources */,

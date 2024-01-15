@@ -36,7 +36,7 @@ struct BoxChartView: UIViewRepresentable {
     private func addData()-> LineChartData{
         
         let colorSpace = CGColorSpaceCreateDeviceRGB()
-        let colors = [UIColor.white.cgColor, UIColor.orange.cgColor]
+        _ = [UIColor.white.cgColor, UIColor.orange.cgColor]
         let colorLocations: [CGFloat] = [0.0, 1.0]
         
         let gradientColors = [UIColor.white.cgColor, UIColor.orange.cgColor]
