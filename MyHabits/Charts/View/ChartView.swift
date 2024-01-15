@@ -40,6 +40,7 @@ struct ChartView: View {
                 }
             }
         }
+        .onAppear(perform: viewModel.onAppear)
     }
 }
 
