@@ -74,7 +74,7 @@ extension HabitView{
 }
 extension HabitView {
     var addButton: some View{
-        NavigationLink {
+        NavigationLink {    
             viewModel.habitCreateView()
         } label: {
             Label("Create Habit", systemImage: "plus.app")

@@ -22,10 +22,10 @@ struct HabitCreateView: View {
         ScrollView(showsIndicators: false){
             VStack(alignment: .center, spacing: 12.0){
                 Button(action: {
-                    shouldPresentCamera = true
+                    self.shouldPresentCamera = true
                 }, label: {
                     VStack{
-                        Image(systemName: "camera.fill")
+                        viewModel.image!
                             .resizable()
                             .scaledToFit()
                             .frame(width: 100, height: 100)
@@ -36,9 +36,15 @@ struct HabitCreateView: View {
                     }
                 })
                 .padding(.bottom,12)
+                .sheet(isPresented: $shouldPresentCamera){
+                    ImagePickerView(sourceType: .camera,
+                                    isPresented: self.$shouldPresentCamera,
+                                    image: self.$viewModel.image,
+                                    imageData: self.$viewModel.imageData)
+                }
             }
             VStack{
-                TextField("Write the name of the habit here", text: $viewModel.name)
+                TextField("Write the name of the habit", text: $viewModel.name)
                     .multilineTextAlignment(.center)
                     .textFieldStyle(PlainTextFieldStyle())
                 
@@ -49,7 +55,7 @@ struct HabitCreateView: View {
             .padding(.horizontal,32)
             
             VStack{
-                TextField("Enter the unit of measurement here", text: $viewModel.label)
+                TextField("Enter the unit of measurement", text: $viewModel.label)
                     .multilineTextAlignment(.center)
                     .textFieldStyle(PlainTextFieldStyle())
                 

@@ -86,6 +86,7 @@
 		2DECDC4E2A8FFD2000C84F11 /* SignUpViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DECDC4D2A8FFD2000C84F11 /* SignUpViewRouter.swift */; };
 		2DF2EC162AB5C6080034340E /* SignInErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF2EC152AB5C6080034340E /* SignInErrorResponse.swift */; };
 		2DFE73EC2A8AA2C6002DCB46 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE73EB2A8AA2C6002DCB46 /* SplashView.swift */; };
+		2DFEF2C92B61621A00A80682 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFEF2C82B61621A00A80682 /* ImagePickerView.swift */; };
 		D8710060D07999650D2D9C8A /* Pods_MyHabits.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A12B4BB603C7E453DEDCA12 /* Pods_MyHabits.framework */; };
 /* End PBXBuildFile section */
 
@@ -171,6 +172,7 @@
 		2DECDC4D2A8FFD2000C84F11 /* SignUpViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewRouter.swift; sourceTree = "<group>"; };
 		2DF2EC152AB5C6080034340E /* SignInErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInErrorResponse.swift; sourceTree = "<group>"; };
 		2DFE73EB2A8AA2C6002DCB46 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		2DFEF2C82B61621A00A80682 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
 		3A12B4BB603C7E453DEDCA12 /* Pods_MyHabits.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyHabits.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB4E92632E1C0B755D7B3E3F /* Pods-MyHabits.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyHabits.release.xcconfig"; path = "Target Support Files/Pods-MyHabits/Pods-MyHabits.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -603,6 +605,7 @@
 				2DCF522E2A968AC700CC7D12 /* EditTextView.swift */,
 				2DD1592F2A97E897008DED2D /* LoadingButtonView.swift */,
 				2D7D65C12B13809700592081 /* ImageView.swift */,
+				2DFEF2C82B61621A00A80682 /* ImagePickerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -860,6 +863,7 @@
 				2D13E8C42B4C580600354717 /* BoxChartView.swift in Sources */,
 				2D41727D2B51882D007B0E78 /* HabitValueResponse.swift in Sources */,
 				2D2AACC92AC4A0E000CB28CC /* HabitViewModel.swift in Sources */,
+				2DFEF2C92B61621A00A80682 /* ImagePickerView.swift in Sources */,
 				2D2AACC72AC4A0B600CB28CC /* HabitView.swift in Sources */,
 				2DA42AB72AF03CB0002227D0 /* HabitDetailInteractor.swift in Sources */,
 				2DD1592E2A97E495008DED2D /* String+Extension.swift in Sources */,
