@@ -72,6 +72,9 @@ enum WebService{
                         case 200:
                             completion(.success(data))
                             break
+                        case 201:
+                            completion(.success(data))
+                            break
                         case 400:
                             completion(.failure(.badRequest, data))
                             break

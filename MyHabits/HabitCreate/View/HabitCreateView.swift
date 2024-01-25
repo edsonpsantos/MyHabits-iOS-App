@@ -94,7 +94,7 @@ struct HabitCreateView: View {
 struct HabitCreateView_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) { colorValue in
-            HabitCreateView(viewModel: HabitCreateViewModel(interactor: HabitDetailInteractor()))
+            HabitCreateView(viewModel: HabitCreateViewModel(interactor: HabitCreateInteractor()))
                 .previewDevice("iPhone 11")
                 .preferredColorScheme(colorValue)
             
