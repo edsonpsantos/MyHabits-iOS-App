@@ -8,6 +8,16 @@ The repository contains all code based on an MVVM architecture with Swift and Sw
 ##  🤔 Technologies and Techniques used:
 * Swift
 * Swift UI
+* UI Cupertino Data Edition
+* Combine
+* UIKit Charts
+* UIkit Picker Image
+* UIKit Camera
+* Remote Source
+* LocalData Store
+* Interactor
+* Refresh token security
+* Multipart form-data
 * MVVM Architecture
 * Good practices
 
