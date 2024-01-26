@@ -22,8 +22,12 @@ The repository contains all code based on an MVVM architecture with Swift and Sw
 * MVVM Architecture
 * Good practices
 
-
+##  📱 App screens:
 ![Splash Screen](https://github.com/edsonpsantos/images/blob/main/MyHabits/MyHabits-SplashScreen.png)
-
+![Splash Screen](https://github.com/edsonpsantos/images/blob/main/MyHabits/MyHabits-LoginScreen.png)
+![Splash Screen](https://github.com/edsonpsantos/images/blob/main/MyHabits/MyHabits-EmptyHabitView.png) 
+![Splash Screen](https://github.com/edsonpsantos/images/blob/main/MyHabits/MyHabits-HabitCreateView.png)
+![Splash Screen](https://github.com/edsonpsantos/images/blob/main/MyHabits/MyHabits-ChartsScreen.png)
+![Splash Screen](https://github.com/edsonpsantos/images/blob/main/MyHabits/MyHabits-ProfileView.png)
 
 🙏🏽 Thanks for your attention ! 
