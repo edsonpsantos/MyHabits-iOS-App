@@ -10,6 +10,7 @@ The repository contains all code based on an MVVM architecture with Swift and Sw
 * Swift UI
 * UI Cupertino Data Edition
 * Combine
+* CocoaPod
 * UIKit Charts
 * UIkit Picker Image
 * UIKit Camera
