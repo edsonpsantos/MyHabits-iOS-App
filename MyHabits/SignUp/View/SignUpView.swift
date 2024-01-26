@@ -10,7 +10,7 @@ import SwiftUI
 
 struct SignUpView : View{
     
- 
+    
     
     @ObservedObject var viewModel: SignUpViewModel
     
@@ -70,7 +70,7 @@ extension SignUpView {
                      keyboard: .emailAddress,
                      error: "Invalid e-mail format",
                      failure: !viewModel.email.isEmail())
-            .autocapitalization(.none)
+        .autocapitalization(.none)
     }
 }
 
@@ -89,22 +89,24 @@ extension SignUpView{
     var documentField: some View {
         EditTextView(text: $viewModel.document,
                      placeholder: "Your Fiscal Doc Number",
+                     mask: "###.###.###",
                      keyboard: .numberPad,
                      error: "Invalid document",
-                     failure: viewModel.document.count != 12)
+                     failure: viewModel.document.count != 11)
         // TODO: mask
         // TODO: isDisabled
     }
 }
 
 extension SignUpView {
-   var phoneNumberField: some View{
-       EditTextView(text: $viewModel.phoneNumber,
+    var phoneNumberField: some View{
+        EditTextView(text: $viewModel.phoneNumber,
                      placeholder: "Your mobile number",
+                     mask:"### ### ###",
                      keyboard: .numberPad,
                      error: "Invalid mobile number format",
-                    failure: viewModel.phoneNumber.count < 9 || viewModel.phoneNumber.count  >= 10
-                    )
+                     failure: viewModel.phoneNumber.count < 11 || viewModel.phoneNumber.count  >= 12
+        )
     }
 }
 
@@ -112,7 +114,8 @@ extension SignUpView {
     var birthDayField: some View {
         EditTextView(text: $viewModel.birthDay,
                      placeholder: "Your birthDay date",
-                     keyboard: .default,
+                     mask: "##/##/####",
+                     keyboard: .numberPad,
                      error: "Invalid date format",
                      failure: viewModel.birthDay.count != 10)
     }
@@ -138,8 +141,8 @@ extension SignUpView {
                           disabled: !viewModel.email.isEmail() ||
                           viewModel.password.count < 8 ||
                           viewModel.fullName.count < 3 ||
-                          viewModel.document.count != 12 ||
-                          viewModel.phoneNumber.count < 9 || viewModel.phoneNumber.count  >= 10 ||
+                          viewModel.document.count != 11 ||
+                          viewModel.phoneNumber.count < 11 || viewModel.phoneNumber.count  >= 12 ||
                           viewModel.birthDay.count != 10,
                           showProgressBar: self.viewModel.uiState == SignUpUIState.loading)
     }

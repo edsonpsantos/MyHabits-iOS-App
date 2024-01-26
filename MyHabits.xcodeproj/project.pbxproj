@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2D13E8C22B4C56BA00354717 /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D13E8C12B4C56BA00354717 /* ChartViewModel.swift */; };
 		2D13E8C42B4C580600354717 /* BoxChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D13E8C32B4C580600354717 /* BoxChartView.swift */; };
+		2D19E7942B63F0AB00F60723 /* Mask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D19E7932B63F0AB00F60723 /* Mask.swift */; };
 		2D2AACC12AC49FE400CB28CC /* HomeViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2AACC02AC49FE400CB28CC /* HomeViewRouter.swift */; };
 		2D2AACC72AC4A0B600CB28CC /* HabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2AACC62AC4A0B600CB28CC /* HabitView.swift */; };
 		2D2AACC92AC4A0E000CB28CC /* HabitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2AACC82AC4A0E000CB28CC /* HabitViewModel.swift */; };
@@ -97,6 +98,7 @@
 		194D1C5C8C374C8017BBBB49 /* Pods-MyHabits.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyHabits.debug.xcconfig"; path = "Target Support Files/Pods-MyHabits/Pods-MyHabits.debug.xcconfig"; sourceTree = "<group>"; };
 		2D13E8C12B4C56BA00354717 /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
 		2D13E8C32B4C580600354717 /* BoxChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxChartView.swift; sourceTree = "<group>"; };
+		2D19E7932B63F0AB00F60723 /* Mask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mask.swift; sourceTree = "<group>"; };
 		2D2AACC02AC49FE400CB28CC /* HomeViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewRouter.swift; sourceTree = "<group>"; };
 		2D2AACC62AC4A0B600CB28CC /* HabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitView.swift; sourceTree = "<group>"; };
 		2D2AACC82AC4A0E000CB28CC /* HabitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitViewModel.swift; sourceTree = "<group>"; };
@@ -195,6 +197,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D19E7922B63F09500F60723 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				2D19E7932B63F0AB00F60723 /* Mask.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		2D2AACC22AC4A08200CB28CC /* Habit */ = {
 			isa = PBXGroup;
 			children = (
@@ -528,6 +538,7 @@
 		2DA475CA2A8EA480009E5178 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				2D19E7922B63F09500F60723 /* Util */,
 				2D9750312A9FDD1A007E07B9 /* Environment */,
 				2D9750282A9FC92E007E07B9 /* Network */,
 				2DD1592C2A97E190008DED2D /* Lang */,
@@ -889,6 +900,7 @@
 				2DF2EC162AB5C6080034340E /* SignInErrorResponse.swift in Sources */,
 				2D4172822B518929007B0E78 /* ChartRemoteDataSource.swift in Sources */,
 				2DECDC4E2A8FFD2000C84F11 /* SignUpViewRouter.swift in Sources */,
+				2D19E7942B63F0AB00F60723 /* Mask.swift in Sources */,
 				2DA496C92A8BC9050095008F /* SplashViewRouter.swift in Sources */,
 				2DD9D6382AA915E0002FE8E3 /* SignInResponse.swift in Sources */,
 				2D74EACC2A8D587F00B05252 /* HomeView.swift in Sources */,
