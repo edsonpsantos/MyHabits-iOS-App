@@ -62,9 +62,14 @@ struct ProfileView: View {
                                 HStack{
                                     Text("Mobile: ")
                                     Spacer()
-                                    TextField("Your phone number here", text: $viewModel.phoneNumberValidation.value)
-                                        .keyboardType(.numberPad)
-                                        .multilineTextAlignment(.trailing)
+                                    ProfileEditTextView(text: $viewModel.phoneNumberValidation.value,
+                                                 placeholder: "Your mobile number",
+                                                 mask:"### ### ###",
+                                                 keyboard: .numberPad)
+                                    
+                                    //TextField("Your phone number here", text: $viewModel.phoneNumberValidation.value)
+                                    //    .keyboardType(.numberPad)
+                                    //    .multilineTextAlignment(.trailing)
                                 }
                                 if(viewModel.phoneNumberValidation.failure){
                                     Text("Invalid mobile number format")
@@ -74,8 +79,14 @@ struct ProfileView: View {
                                 HStack{
                                     Text("Birth Day: ")
                                     Spacer()
-                                    TextField("Inform your BirthDay here", text: $viewModel.birthdayValidation.value)
-                                        .multilineTextAlignment(.trailing)
+
+                                    ProfileEditTextView(text: $viewModel.birthdayValidation.value,
+                                                 placeholder: "Inform your BirthDay here",
+                                                 mask:"##/##/####",
+                                                 keyboard: .numberPad)
+                                                                        
+                                    //TextField("Inform your BirthDay here", text: $viewModel.birthdayValidation.value)
+                                   //     .multilineTextAlignment(.trailing)
                                 }
                                 if(viewModel.birthdayValidation.failure){
                                     Text("Invalid date format").foregroundColor(.red)

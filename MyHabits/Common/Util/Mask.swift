@@ -70,7 +70,7 @@ class Mask {
             i = i + 1
         }
         isUpdating = true
-        if(fieldWithMask == "0" || fieldWithMask == "(0"){
+        if(fieldWithMask == "(0"){
             text = ""
             return
         }
