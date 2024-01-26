@@ -23,11 +23,12 @@ The repository contains all code based on an MVVM architecture with Swift and Sw
 * Good practices
 
 ##  📱 App screens:
-![Splash Screen](https://github.com/edsonpsantos/images/blob/main/MyHabits/MyHabits-SplashScreen.png)
-![Splash Screen](https://github.com/edsonpsantos/images/blob/main/MyHabits/MyHabits-LoginScreen.png)
-![Splash Screen](https://github.com/edsonpsantos/images/blob/main/MyHabits/MyHabits-EmptyHabitView.png) 
-![Splash Screen](https://github.com/edsonpsantos/images/blob/main/MyHabits/MyHabits-HabitCreateView.png)
-![Splash Screen](https://github.com/edsonpsantos/images/blob/main/MyHabits/MyHabits-ChartsScreen.png)
-![Splash Screen](https://github.com/edsonpsantos/images/blob/main/MyHabits/MyHabits-ProfileView.png)
+![Splash Screen](https://github.com/edsonpsantos/images/blob/main/MyHabits/MyHabits-SplashScreen.png "Splash Screen")
+![Login Screen](https://github.com/edsonpsantos/images/blob/main/MyHabits/MyHabits-LoginScreen.png)
+![Habit Screen](https://github.com/edsonpsantos/images/blob/main/MyHabits/MyHabits-EmptyHabitView.png) 
+![Habit Create Screen](https://github.com/edsonpsantos/images/blob/main/MyHabits/MyHabits-HabitCreateView.png)
+![Habit Created Screen](https://github.com/edsonpsantos/images/blob/main/MyHabits/MyHabits-HabitView.png)
+![Chart Habit Screen](https://github.com/edsonpsantos/images/blob/main/MyHabits/MyHabits-ChartsScreen.png)
+![Profile Screen](https://github.com/edsonpsantos/images/blob/main/MyHabits/MyHabits-ProfileView.png)
 
 🙏🏽 Thanks for your attention ! 
