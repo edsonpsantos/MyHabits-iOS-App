@@ -29,8 +29,8 @@ The repository contains all code based on an MVVM architecture with Swift and Sw
 
 ![Habit Screen](https://github.com/edsonpsantos/images/blob/main/MyHabits/MyHabits-EmptyHabitView.png)
 ![Habit Create Screen](https://github.com/edsonpsantos/images/blob/main/MyHabits/MyHabits-HabitCreateView.png)
-
 ![Habit Created Screen](https://github.com/edsonpsantos/images/blob/main/MyHabits/MyHabits-HabitView.png)
+
 ![Profile Screen](https://github.com/edsonpsantos/images/blob/main/MyHabits/MyHabits-ProfileScreen.png)
 
 🙏🏽 Thanks for your attention! 
