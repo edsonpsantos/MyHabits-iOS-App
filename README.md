@@ -23,7 +23,7 @@ The repository contains all code based on an MVVM architecture with Swift and Sw
 * Good practices
 
 
-![Splash Screen]([https://drive.google.com/file/d/1FX7ZI2wi8QQbcA_XCxIrXboRVo1STMj-/view](https://drive.google.com/file/d/1FX7ZI2wi8QQbcA_XCxIrXboRVo1STMj-/view?usp=sharing)https://drive.google.com/file/d/1FX7ZI2wi8QQbcA_XCxIrXboRVo1STMj-/view?usp=sharing)
+![Splash Screen](https://github.com/edsonpsantos/images/blob/main/MyHabits/MyHabits-SplashScreen.png)
 
 
 🙏🏽 Thanks for your attention ! 
