@@ -18,7 +18,8 @@ struct ImageView: View {
     }
     
     var body: some View {
-        Image(uiImage: image)
+        // Refactoring to reload images only those that have not yet been loaded
+        Image(uiImage:UIImage(data: imageLoader.data) ?? image)
             .resizable()
             .onReceive(imageLoader.didChange, perform: { data in
                 self.image = UIImage(data: data) ?? UIImage()
